@@ -1,0 +1,98 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0",
+  "files": [],
+  "subMetas": {
+    "60298": {
+      "importer": "gltf-mesh",
+      "uuid": "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@60298",
+      "displayName": "",
+      "id": "60298",
+      "name": "Plane_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "051fd": {
+      "importer": "gltf-material",
+      "uuid": "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@051fd",
+      "displayName": "",
+      "id": "051fd",
+      "name": "road_surface.001.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "000ea": {
+      "importer": "gltf-material",
+      "uuid": "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@000ea",
+      "displayName": "",
+      "id": "000ea",
+      "name": "road_surface.002.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "09d61": {
+      "importer": "gltf-scene",
+      "uuid": "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@09d61",
+      "displayName": "",
+      "id": "09d61",
+      "name": "road.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@09d61",
+    "assetFinder": {
+      "meshes": [
+        "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@60298"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@051fd",
+        "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@000ea"
+      ],
+      "scenes": [
+        "2d538fe5-acb0-465b-8f6c-8d3f1bc2b0b0@09d61"
+      ]
+    },
+    "meshOptimizer": {
+      "enable": true
+    }
+  }
+}
