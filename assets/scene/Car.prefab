@@ -187,7 +187,7 @@
     "_lscale": {
       "__type__": "cc.Vec3",
       "x": 0.09999999999999998,
-      "y": 1,
+      "y": 1.2,
       "z": 0.09999999999999999
     },
     "_mobility": 0,
@@ -230,6 +230,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -255,8 +257,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -292,7 +293,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": -1
+      "z": -1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -347,6 +348,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -372,8 +375,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -409,7 +411,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 1
+      "z": 1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -464,6 +466,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -489,8 +493,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -518,7 +521,7 @@
     },
     "_group": 1,
     "_type": 1,
-    "_mass": 1,
+    "_mass": 3,
     "_allowSleep": true,
     "_linearDamping": 0.1,
     "_angularDamping": 0.1,
@@ -548,7 +551,7 @@
     "node": {
       "__id__": 2
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 21
     },
@@ -745,7 +748,7 @@
       "__type__": "cc.Vec3",
       "x": -1.1,
       "y": 0,
-      "z": -1
+      "z": -1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -800,6 +803,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -825,8 +830,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.CylinderCollider",
@@ -874,8 +878,8 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_linearDamping": 0.2,
+    "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -982,8 +986,8 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_linearDamping": 0.2,
+    "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -1027,7 +1031,7 @@
       "__type__": "cc.Vec3",
       "x": -1.1,
       "y": 0,
-      "z": -0.9999999999999999
+      "z": -1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1128,6 +1132,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -1153,8 +1159,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1245,7 +1250,7 @@
     "__type__": "cc.LinearLimitSettings",
     "_xMotion": 1,
     "_yMotion": 2,
-    "_zMotion": 2,
+    "_zMotion": 1,
     "_upper": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -1260,8 +1265,8 @@
     },
     "_enableSoftConstraint": true,
     "_bounciness": 0,
-    "_stiffness": 1000000,
-    "_damping": 50000
+    "_stiffness": 300,
+    "_damping": 100
   },
   {
     "__type__": "cc.AngularLimitSettings",
@@ -1455,7 +1460,7 @@
       "__type__": "cc.Vec3",
       "x": 1.1,
       "y": 0,
-      "z": -1
+      "z": -1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1510,6 +1515,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -1535,8 +1542,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.CylinderCollider",
@@ -1584,8 +1590,8 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_linearDamping": 0.2,
+    "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -1692,8 +1698,8 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_linearDamping": 0.2,
+    "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -1737,7 +1743,7 @@
       "__type__": "cc.Vec3",
       "x": 1.1,
       "y": 0,
-      "z": -0.9999999999999999
+      "z": -1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1838,6 +1844,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -1863,8 +1871,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1955,7 +1962,7 @@
     "__type__": "cc.LinearLimitSettings",
     "_xMotion": 1,
     "_yMotion": 2,
-    "_zMotion": 2,
+    "_zMotion": 1,
     "_upper": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -1970,8 +1977,8 @@
     },
     "_enableSoftConstraint": true,
     "_bounciness": 0,
-    "_stiffness": 1000000,
-    "_damping": 50000
+    "_stiffness": 300,
+    "_damping": 100
   },
   {
     "__type__": "cc.AngularLimitSettings",
@@ -2165,7 +2172,7 @@
       "__type__": "cc.Vec3",
       "x": -1.1,
       "y": 0,
-      "z": 1
+      "z": 1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -2220,6 +2227,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -2245,8 +2254,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.CylinderCollider",
@@ -2294,8 +2302,8 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_linearDamping": 0.2,
+    "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -2402,8 +2410,8 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_linearDamping": 0.2,
+    "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -2447,7 +2455,7 @@
       "__type__": "cc.Vec3",
       "x": -1.1,
       "y": 0,
-      "z": 1
+      "z": 1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -2548,6 +2556,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -2573,8 +2583,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2665,7 +2674,7 @@
     "__type__": "cc.LinearLimitSettings",
     "_xMotion": 1,
     "_yMotion": 2,
-    "_zMotion": 2,
+    "_zMotion": 1,
     "_upper": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -2680,8 +2689,8 @@
     },
     "_enableSoftConstraint": true,
     "_bounciness": 0,
-    "_stiffness": 1000000,
-    "_damping": 50000
+    "_stiffness": 300,
+    "_damping": 100
   },
   {
     "__type__": "cc.AngularLimitSettings",
@@ -2875,7 +2884,7 @@
       "__type__": "cc.Vec3",
       "x": 1.1,
       "y": 0,
-      "z": 1
+      "z": 1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -2930,6 +2939,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -2955,8 +2966,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.CylinderCollider",
@@ -3004,8 +3014,8 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_linearDamping": 0.2,
+    "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -3112,8 +3122,8 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_linearDamping": 0.2,
+    "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -3157,7 +3167,7 @@
       "__type__": "cc.Vec3",
       "x": 1.1,
       "y": 0,
-      "z": 1
+      "z": 1.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -3258,6 +3268,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -3283,8 +3295,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3375,7 +3386,7 @@
     "__type__": "cc.LinearLimitSettings",
     "_xMotion": 1,
     "_yMotion": 2,
-    "_zMotion": 2,
+    "_zMotion": 1,
     "_upper": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -3390,8 +3401,8 @@
     },
     "_enableSoftConstraint": true,
     "_bounciness": 0,
-    "_stiffness": 1000000,
-    "_damping": 50000
+    "_stiffness": 300,
+    "_damping": 100
   },
   {
     "__type__": "cc.AngularLimitSettings",
@@ -3593,7 +3604,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0.5,
+      "y": 0.6,
       "z": 0
     },
     "_lrot": {
@@ -3649,6 +3660,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": -1,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": ""
   },
@@ -3674,8 +3687,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
+    "_bakeToReflectionProbe": true
   },
   {
     "__type__": "cc.RigidBody",
@@ -3690,9 +3702,9 @@
     },
     "_group": 1,
     "_type": 1,
-    "_mass": 10,
+    "_mass": 1,
     "_allowSleep": true,
-    "_linearDamping": 0.1,
+    "_linearDamping": 0.2,
     "_angularDamping": 0.2,
     "_useGravity": true,
     "_linearFactor": {
@@ -3835,8 +3847,8 @@
     },
     "_enableSoftConstraint": true,
     "_bounciness": 0,
-    "_stiffness": 1000000,
-    "_damping": 50000
+    "_stiffness": 100,
+    "_damping": 10
   },
   {
     "__type__": "cc.AngularLimitSettings",
@@ -3984,8 +3996,8 @@
     },
     "_enableSoftConstraint": true,
     "_bounciness": 0,
-    "_stiffness": 1000000,
-    "_damping": 50000
+    "_stiffness": 100,
+    "_damping": 10
   },
   {
     "__type__": "cc.AngularLimitSettings",
@@ -4133,8 +4145,8 @@
     },
     "_enableSoftConstraint": true,
     "_bounciness": 0,
-    "_stiffness": 1000000,
-    "_damping": 50000
+    "_stiffness": 100,
+    "_damping": 10
   },
   {
     "__type__": "cc.AngularLimitSettings",
@@ -4282,8 +4294,8 @@
     },
     "_enableSoftConstraint": true,
     "_bounciness": 0,
-    "_stiffness": 1000000,
-    "_damping": 50000
+    "_stiffness": 100,
+    "_damping": 10
   },
   {
     "__type__": "cc.AngularLimitSettings",
@@ -4428,12 +4440,6 @@
     },
     "car": {
       "__id__": 1
-    },
-    "offset": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 3,
-      "z": 8
     },
     "_id": ""
   },

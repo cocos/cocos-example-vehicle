@@ -59,6 +59,8 @@ export class Vehicle extends Component {
     public carBody: Node = null!;
     public mainCamera: Camera = null!;
 
+    public framework: Node = null!;
+
     private _maxPower = 1000;
     private _currentGear = 0;
     private _gears = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -80,9 +82,13 @@ export class Vehicle extends Component {
     private _smoothedSteeringAngle = 0;
     private _smoothedPosition = new Vec3(0, 0, 0);
     private _smoothedOrientation = new Quat(0, 0, 0, 0);
+    
+    private _smoothedVelocity = new Vec3(0, 0, 0);
+    private _prevPosition = new Vec3(0, 0, 0);
 
     start() {
         this.carBody = this.car.getChildByName('body')!;
+        this.framework = this.car.getChildByName('framework')!;
         this.frontLeftWheel = this.car.getChildByName('Wheel-000')!;
         this.frontRightWheel = this.car.getChildByName('Wheel-001')!;
         this.rearLeftWheel = this.car.getChildByName('Wheel-010')!;
@@ -129,12 +135,12 @@ export class Vehicle extends Component {
                 this.reset();
                 break;
             case KeyCode.KEY_C:
-                this._currentVisionPreset = camera_preset['inside'];
                 this._persistentVision = camera_preset['inside'];
+                this._currentVisionPreset = this._persistentVision;
                 break;
             case KeyCode.KEY_V:
-                this._currentVisionPreset = camera_preset['default'];
                 this._persistentVision = camera_preset['default'];
+                this._currentVisionPreset = this._persistentVision;
                 break;
             case KeyCode.KEY_B:
                 this._currentVisionPreset = camera_preset['back'];
@@ -190,7 +196,7 @@ export class Vehicle extends Component {
         this._currentGear = gear;
         const index = this._gears.indexOf(gear);
         this._speedLevel = index;
-        this._currentStrength = this._strengthLevels[index];
+        this._currentStrength = this._strengthLevels[index] / 50.0; // divide by factor to make it more realistic
         this._currentSpeed = this._speedLevels[index];
         
         if (this._onAcceleration) {
@@ -202,17 +208,14 @@ export class Vehicle extends Component {
 
     update(deltaTime: number) {
         this._bufferIndex = (this._bufferIndex + 1) % this._bufferSize;
-        
         this.updateVision(this._bufferIndex);
         this.updateSteering(this._bufferIndex);
+
+        this.updateVelocity(deltaTime);
     }
 
     updateSteering(index: number) {
-        // this._smoothedSteeringAngle -= this._steeringBuffer[index];
-        // this._smoothedSteeringAngle += this._steeringDelta;
-        // this._steeringBuffer[index] = this._steeringDelta;
-        // this.setSteeringAngle(this._smoothedSteeringAngle / this._bufferSize);
-        this._smoothedSteeringAngle = math.lerp(this._smoothedSteeringAngle, this._steeringDelta, 0.1);
+        this._smoothedSteeringAngle = math.lerp(this._smoothedSteeringAngle, this._steeringDelta, 0.08);
         this.setSteeringAngle(this._smoothedSteeringAngle);
     }
 
@@ -221,18 +224,31 @@ export class Vehicle extends Component {
         const vision = this._currentVisionPreset;
         const position = this.car.getWorldPosition();
         const rotation = this.car.getWorldRotation();
+        const scale = this.car.getWorldScale();
 
-        Vec3.lerp(this._smoothedPosition, this._smoothedPosition, position, 0.95);
-        Quat.slerp(this._smoothedOrientation, this._smoothedOrientation, rotation, 0.5);
+        Vec3.lerp(this._smoothedPosition, this._smoothedPosition, position, 0.2);
+        Quat.slerp(this._smoothedOrientation, this._smoothedOrientation, rotation, 0.2);
 
         const targetPosition = new Vec3();
         const targetRotation = new Quat();
 
         Vec3.transformQuat(targetPosition, vision.position, rotation);
+        Vec3.multiply(targetPosition, targetPosition, scale);
         Vec3.add(targetPosition, targetPosition, position);
         Quat.multiply(targetRotation, this._smoothedOrientation, vision.orientation);
         this.mainCamera.node.setWorldPosition(targetPosition);
         this.mainCamera.node.setWorldRotation(targetRotation);
+    }
+
+    updateVelocity (deltaTime: number) {
+        const position = this.car.getWorldPosition();
+        const velocity = Vec3.subtract(new Vec3(), position, this._prevPosition);
+        Vec3.multiplyScalar(velocity, velocity, 1 / deltaTime);
+        this._prevPosition = position;
+        Vec3.lerp(this._smoothedVelocity, this._smoothedVelocity, velocity, 0.1);
+        const v = this._smoothedVelocity;
+        // console.log(`velocity: (${v.x}, ${v.y}, ${v.z}})`);
+        console.log(`speed: ${this.getSpeedKmHour()} km/h`);
     }
 
     reset () {
@@ -320,19 +336,21 @@ export class Vehicle extends Component {
         if (com0) {
             com0.angularDriverSettings.targetOrientation.x = angle;
             com0.angularDriverSettings.targetOrientation = com0.angularDriverSettings.targetOrientation;
-            console.log('setSteeringAngle', angle);
+            // console.log('setSteeringAngle', angle);
         }
         const com1 = this.frontRightHub.getComponent(physics.ConfigurableConstraint);
         if (com1) {
             com1.angularDriverSettings.targetOrientation.x = angle;
             com1.angularDriverSettings.targetOrientation = com1.angularDriverSettings.targetOrientation;
-            console.log('setSteeringAngle', angle);
+            // console.log('setSteeringAngle', angle);
         }
     }
 
     setBrakingForce(force: number) {
-        console.log('setBrakingForce', force);
+        // console.log('setBrakingForce', force);
     }
 
-    getSpeedKmHour() { return 0; }
+    getSpeedKmHour() {
+        return Vec3.len(this._smoothedVelocity) * 3.6;
+    }
 }
