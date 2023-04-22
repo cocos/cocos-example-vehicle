@@ -1,18 +1,53 @@
 import { _decorator, Component, Node, Quat, 
     RigidBody, Vec3, input, Input, EventKeyboard, 
-    KeyCode, Camera, ConfigurableConstraint, physics,
+    KeyCode, Camera, ConfigurableConstraint, physics, math,
 } from 'cc';
 
 const { ccclass, property } = _decorator;
+
+class camera_vision {
+    position: Vec3;
+    orientation: Quat;
+}
+
+const camera_preset = {
+    'default': {
+        position: new Vec3(0, 2, 8),
+        orientation: new Quat(),
+    },
+    'back': {
+        position: new Vec3(0, 2, -8),
+        orientation: new Quat(0, 1, 0, 0),
+    },
+    'inside': {
+        position: new Vec3(0, 1, 0),
+        orientation: new Quat(),
+    },
+};
+
+class car_config {
+    maxSteeringAngle: number;
+    maxSpeed: number;
+    maxPower: number;
+    maxBrake: number;
+    smoothBufferLength: number;
+    blendingFactor: number;
+};
+
+const car_preset: car_config = {
+    maxSteeringAngle: 45,
+    maxSpeed: 320,
+    maxPower: 1000,
+    maxBrake: 1000,
+    smoothBufferLength: 10,
+    blendingFactor: 0.2,
+};
 
 @ccclass('Vehicle')
 export class Vehicle extends Component {
 
     @property({ type: Node })
     public car: Node = null!;
-    
-    @property({ type: Vec3 })
-    public offset = new Vec3(0, 0, 0);
 
     public frontLeftWheel: Node = null!;
     public frontRightWheel: Node = null!;
@@ -24,19 +59,27 @@ export class Vehicle extends Component {
     public carBody: Node = null!;
     public mainCamera: Camera = null!;
 
-    private _maxPower = 100000;
+    private _maxPower = 1000;
     private _currentGear = 0;
     private _gears = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     private _speedLevel = 0;
     private _speedLevels = [-20, 0, 20, 40, 60, 90, 120, 160, 200, 240, 280, 320];
-    private _strengthLevels = [5000, 0, 5000, 2500, 1666, 1111, 833, 625, 500, 416, 357, 312];
+    private _strengthLevels = [50, 0, 50, 25, 16.66, 11.11, 8.33, 6.25, 5.00, 4.16, 3.57, 3.12];
     private _currentSpeed = 0;
     private _currentStrength = 0;
 
-    private _onAcceleration = false;
+    private _currentVisionPreset: camera_vision = camera_preset['default'];
+    private _persistentVision: camera_vision = camera_vision['default'];
 
-    private _steeringBuffer = new Array<number>(60).fill(0);
+    private _onAcceleration = false;
+    private _steeringDelta = 0;
+    
+    private _bufferSize = car_preset.smoothBufferLength;
     private _bufferIndex = 0;
+    
+    private _smoothedSteeringAngle = 0;
+    private _smoothedPosition = new Vec3(0, 0, 0);
+    private _smoothedOrientation = new Quat(0, 0, 0, 0);
 
     start() {
         this.carBody = this.car.getChildByName('body')!;
@@ -71,10 +114,10 @@ export class Vehicle extends Component {
                 this._onAcceleration = true;
                 break;
             case KeyCode.KEY_A:
-                this.setSteeringAngle(30);
+                this._steeringDelta = car_preset.maxSteeringAngle;
                 break;
             case KeyCode.KEY_D:
-                this.setSteeringAngle(-30);
+                this._steeringDelta = -car_preset.maxSteeringAngle;
                 break;
             case KeyCode.KEY_Q:
                 this.changeGear('-');
@@ -85,6 +128,19 @@ export class Vehicle extends Component {
             case KeyCode.KEY_R:
                 this.reset();
                 break;
+            case KeyCode.KEY_C:
+                this._currentVisionPreset = camera_preset['inside'];
+                this._persistentVision = camera_preset['inside'];
+                break;
+            case KeyCode.KEY_V:
+                this._currentVisionPreset = camera_preset['default'];
+                this._persistentVision = camera_preset['default'];
+                break;
+            case KeyCode.KEY_B:
+                this._currentVisionPreset = camera_preset['back'];
+                break;
+            case KeyCode.SPACE:
+                this.setDrivingForce(0);
             default: break;
         }
     }
@@ -97,10 +153,19 @@ export class Vehicle extends Component {
                 this._onAcceleration = false;
                 break;
             case KeyCode.KEY_A:
-                this.setSteeringAngle(0);
+                this._steeringDelta = 0;
                 break;
             case KeyCode.KEY_D:
-                this.setSteeringAngle(0);
+                this._steeringDelta = 0;
+                break;
+            case KeyCode.KEY_C:
+                this._currentVisionPreset = this._persistentVision;
+                break;
+            case KeyCode.KEY_V:
+                this._currentVisionPreset = this._persistentVision;
+                break;
+            case KeyCode.KEY_B:
+                this._currentVisionPreset = this._persistentVision;
                 break;
             default: break;
         }
@@ -136,15 +201,42 @@ export class Vehicle extends Component {
     }
 
     update(deltaTime: number) {
+        this._bufferIndex = (this._bufferIndex + 1) % this._bufferSize;
+        
+        this.updateVision(this._bufferIndex);
+        this.updateSteering(this._bufferIndex);
+    }
+
+    updateSteering(index: number) {
+        // this._smoothedSteeringAngle -= this._steeringBuffer[index];
+        // this._smoothedSteeringAngle += this._steeringDelta;
+        // this._steeringBuffer[index] = this._steeringDelta;
+        // this.setSteeringAngle(this._smoothedSteeringAngle / this._bufferSize);
+        this._smoothedSteeringAngle = math.lerp(this._smoothedSteeringAngle, this._steeringDelta, 0.1);
+        this.setSteeringAngle(this._smoothedSteeringAngle);
+    }
+
+    updateVision (index: number) {
         // update camera position
-        const position = new Vec3();
-        Vec3.transformQuat(position, this.offset, this.car.getWorldRotation());
-        this.mainCamera.node.setWorldPosition(position.add(this.car.getWorldPosition()));
-        this.mainCamera.node.setWorldRotation(this.car.getWorldRotation());
+        const vision = this._currentVisionPreset;
+        const position = this.car.getWorldPosition();
+        const rotation = this.car.getWorldRotation();
+
+        Vec3.lerp(this._smoothedPosition, this._smoothedPosition, position, 0.95);
+        Quat.slerp(this._smoothedOrientation, this._smoothedOrientation, rotation, 0.5);
+
+        const targetPosition = new Vec3();
+        const targetRotation = new Quat();
+
+        Vec3.transformQuat(targetPosition, vision.position, rotation);
+        Vec3.add(targetPosition, targetPosition, position);
+        Quat.multiply(targetRotation, this._smoothedOrientation, vision.orientation);
+        this.mainCamera.node.setWorldPosition(targetPosition);
+        this.mainCamera.node.setWorldRotation(targetRotation);
     }
 
     reset () {
-        this.resetTo(new Vec3(0, 10, 0), new Quat());
+        this.resetTo(new Vec3(0, 0, 0), new Quat());
     }
 
     resetTo(position: Vec3, orientation: Quat) {
