@@ -1,0 +1,40 @@
+{
+  "ver": "1.2.2",
+  "importer": "render-texture",
+  "imported": true,
+  "uuid": "b4532058-e029-431c-8bcd-651f8d44c47b",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {
+    "f9941": {
+      "importer": "rt-sprite-frame",
+      "uuid": "b4532058-e029-431c-8bcd-651f8d44c47b@f9941",
+      "displayName": "hud-rt",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "userData": {
+        "imageUuidOrDatabaseUri": "b4532058-e029-431c-8bcd-651f8d44c47b",
+        "width": 512,
+        "height": 512
+      },
+      "ver": "1.0.0",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "width": 512,
+    "height": 512,
+    "anisotropy": 0,
+    "minfilter": "linear",
+    "magfilter": "linear",
+    "mipfilter": "none",
+    "wrapModeS": "repeat",
+    "wrapModeT": "repeat",
+    "redirect": "b4532058-e029-431c-8bcd-651f8d44c47b@f9941"
+  }
+}
