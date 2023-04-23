@@ -13,7 +13,7 @@ export class Login extends Component {
     }
 
     start () {
-        let bundleRoot = ["resources", "main"];
+        let bundleRoot = ["resources"];
         let arr: any = []; 
 
         bundleRoot.forEach((item: string)=>{

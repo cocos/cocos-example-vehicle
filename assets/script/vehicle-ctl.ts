@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, Quat, 
     RigidBody, Vec3, input, Input, EventKeyboard, 
-    KeyCode, Camera, ConfigurableConstraint, physics, math,
+    KeyCode, Camera, ConfigurableConstraint, physics, math, Enum,
 } from 'cc';
 
 const { ccclass, property } = _decorator;
@@ -19,18 +19,24 @@ class key_mapping {
     camera_default: KeyCode;
 };
 
+export enum key_style {
+    NORMAL,
+    RALLY,
+}
+Enum(key_style);
+
 class key_status {
-    accelerate: boolean;
-    brake: boolean;
-    left: boolean;
-    right: boolean;
-    gearUp: boolean;
-    gearDown: boolean;
-    handbrake: boolean;
-    reset: boolean;
-    camera_inside: boolean;
-    camera_back: boolean;
-    camera_default: boolean;
+    accelerate: boolean = false;
+    brake: boolean = false;
+    left: boolean = false;
+    right: boolean = false;
+    gearUp: boolean = false;
+    gearDown: boolean = false;
+    handbrake: boolean = false;
+    reset: boolean = false;
+    camera_inside: boolean = false;
+    camera_back: boolean = false;
+    camera_default: boolean = false;
 };
 
 const key_mapping_normal = {
@@ -38,8 +44,8 @@ const key_mapping_normal = {
     brake: KeyCode.KEY_S,
     left: KeyCode.KEY_A,
     right: KeyCode.KEY_D,
-    gearUp: KeyCode.KEY_Q,
-    gearDown: KeyCode.KEY_E,
+    gearUp: KeyCode.KEY_E,
+    gearDown: KeyCode.KEY_Q,
     handbrake: KeyCode.SPACE,
     reset: KeyCode.KEY_R,
     camera_inside: KeyCode.KEY_C,
@@ -114,8 +120,11 @@ export class Vehicle extends Component {
     public mainCamera: Camera = null!;
     public framework: Node = null!;
 
-    private _key_mapping: key_mapping;
-    private _key_status: key_status;
+    @property({ type: key_style })
+    public KeyBinding: key_style = key_style.RALLY;
+
+    private _key_mapping: key_mapping = key_mapping_normal;
+    private _key_status: key_status = new key_status();
 
     private _maxPower = 1000;
     private _currentGear = 0;
@@ -143,28 +152,27 @@ export class Vehicle extends Component {
     private _smoothedVelocity = new Vec3(0, 0, 0);
     private _prevPosition = new Vec3(0, 0, 0);
 
+
+    get keyBinding() {
+        return this.KeyBinding;
+    }
+    set keyBinding(value) {
+        this.KeyBinding = value;
+        if (value === key_style.NORMAL) {
+            this._key_mapping = key_mapping_normal;
+        } else {
+            this._key_mapping = key_mapping_rally;
+        }
+    }
+
     start() {
-        this.carBody = this.car.getChildByName('body')!;
-        this.framework = this.car.getChildByName('framework')!;
-        this.frontLeftWheel = this.car.getChildByName('Wheel-000')!;
-        this.frontRightWheel = this.car.getChildByName('Wheel-001')!;
-        this.rearLeftWheel = this.car.getChildByName('Wheel-010')!;
-        this.rearRightWheel = this.car.getChildByName('Wheel-011')!;
+        // init car
+        this.initCar();
 
-        this.frontLeftHub = this.car.getChildByName('hub-000')!;
-        this.frontRightHub = this.car.getChildByName('hub-001')!;
+        // init key mapping
+        this.keyBinding = this.KeyBinding;
 
-        this.mainCamera = this.node.getChildByName('vehicle-camera')!.getComponent(Camera)!;
-
-        // monitor input events, wasd
-        const com0 = this.frontLeftHub.getComponent(physics.ConfigurableConstraint);
-        if (com0) {
-            com0.angularDriverSettings.twistDrive = 1;
-        }
-        const com1 = this.frontRightHub.getComponent(physics.ConfigurableConstraint);
-        if (com1) {
-            com1.angularDriverSettings.twistDrive = 1;
-        }
+        // init key event
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
         input.on(Input.EventType.KEY_UP, this.onKeyRelease, this);
     }
@@ -190,6 +198,28 @@ export class Vehicle extends Component {
             this._currentGear = this._gears[this._gears.length - 1];
         }
         this.setGear(this._currentGear);
+    }
+
+    initCar () {
+        this.carBody = this.car.getChildByName('body')!;
+        this.framework = this.car.getChildByName('framework')!;
+        this.frontLeftWheel = this.car.getChildByName('Wheel-000')!;
+        this.frontRightWheel = this.car.getChildByName('Wheel-001')!;
+        this.rearLeftWheel = this.car.getChildByName('Wheel-010')!;
+        this.rearRightWheel = this.car.getChildByName('Wheel-011')!;
+        this.frontLeftHub = this.car.getChildByName('hub-000')!;
+        this.frontRightHub = this.car.getChildByName('hub-001')!;
+        this.mainCamera = this.node.getChildByName('vehicle-camera')!.getComponent(Camera)!;
+
+        // monitor input events, wasd
+        const com0 = this.frontLeftHub.getComponent(physics.ConfigurableConstraint);
+        if (com0) {
+            com0.angularDriverSettings.twistDrive = 1;
+        }
+        const com1 = this.frontRightHub.getComponent(physics.ConfigurableConstraint);
+        if (com1) {
+            com1.angularDriverSettings.twistDrive = 1;
+        }
     }
 
     setGear (gear: number) {
