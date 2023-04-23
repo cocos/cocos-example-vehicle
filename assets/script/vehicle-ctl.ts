@@ -114,7 +114,7 @@ export class Vehicle extends Component {
     public mainCamera: Camera = null!;
     public framework: Node = null!;
 
-    private _key_mapping: key_mapping = key_mapping_normal;
+    private _key_mapping: key_mapping;
     private _key_status: key_status;
 
     private _maxPower = 1000;

@@ -1,0 +1,13 @@
+{
+  "ver": "1.1.44",
+  "importer": "prefab",
+  "imported": true,
+  "uuid": "8cbf0336-0e0a-4738-be66-2c7ca11ab04b",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {
+    "syncNodeName": "loginCanvas"
+  }
+}
