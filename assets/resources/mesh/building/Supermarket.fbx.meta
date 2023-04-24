@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "95c07fc7-74df-4cfd-9f26-2285bc1d9a95",
+  "files": [],
+  "subMetas": {
+    "bef06": {
+      "importer": "gltf-mesh",
+      "uuid": "95c07fc7-74df-4cfd-9f26-2285bc1d9a95@bef06",
+      "displayName": "",
+      "id": "bef06",
+      "name": "Supermarket.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "95c07fc7-74df-4cfd-9f26-2285bc1d9a95@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "93aa6": {
+      "importer": "gltf-scene",
+      "uuid": "95c07fc7-74df-4cfd-9f26-2285bc1d9a95@93aa6",
+      "displayName": "",
+      "id": "93aa6",
+      "name": "Supermarket.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "95c07fc7-74df-4cfd-9f26-2285bc1d9a95@93aa6",
+    "assetFinder": {
+      "meshes": [
+        "95c07fc7-74df-4cfd-9f26-2285bc1d9a95@bef06"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "95c07fc7-74df-4cfd-9f26-2285bc1d9a95@7a3ca"
+      ],
+      "scenes": [
+        "95c07fc7-74df-4cfd-9f26-2285bc1d9a95@93aa6"
+      ]
+    }
+  }
+}

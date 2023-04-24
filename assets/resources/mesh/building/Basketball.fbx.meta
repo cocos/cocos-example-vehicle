@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c272ccd3-1ef8-4896-9a76-6eded1e80cc9",
+  "files": [],
+  "subMetas": {
+    "5e005": {
+      "importer": "gltf-mesh",
+      "uuid": "c272ccd3-1ef8-4896-9a76-6eded1e80cc9@5e005",
+      "displayName": "",
+      "id": "5e005",
+      "name": "Basketball.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "c272ccd3-1ef8-4896-9a76-6eded1e80cc9@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bd505": {
+      "importer": "gltf-scene",
+      "uuid": "c272ccd3-1ef8-4896-9a76-6eded1e80cc9@bd505",
+      "displayName": "",
+      "id": "bd505",
+      "name": "Basketball.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "c272ccd3-1ef8-4896-9a76-6eded1e80cc9@bd505",
+    "assetFinder": {
+      "meshes": [
+        "c272ccd3-1ef8-4896-9a76-6eded1e80cc9@5e005"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "c272ccd3-1ef8-4896-9a76-6eded1e80cc9@7a3ca"
+      ],
+      "scenes": [
+        "c272ccd3-1ef8-4896-9a76-6eded1e80cc9@bd505"
+      ]
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "60ebebe5-356a-499b-a1e7-2fc7fd44c911",
+  "files": [],
+  "subMetas": {
+    "a94e8": {
+      "importer": "gltf-mesh",
+      "uuid": "60ebebe5-356a-499b-a1e7-2fc7fd44c911@a94e8",
+      "displayName": "",
+      "id": "a94e8",
+      "name": "Hotel.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "60ebebe5-356a-499b-a1e7-2fc7fd44c911@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c0be7": {
+      "importer": "gltf-scene",
+      "uuid": "60ebebe5-356a-499b-a1e7-2fc7fd44c911@c0be7",
+      "displayName": "",
+      "id": "c0be7",
+      "name": "Hotel.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "60ebebe5-356a-499b-a1e7-2fc7fd44c911@c0be7",
+    "assetFinder": {
+      "meshes": [
+        "60ebebe5-356a-499b-a1e7-2fc7fd44c911@a94e8"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "60ebebe5-356a-499b-a1e7-2fc7fd44c911@7a3ca"
+      ],
+      "scenes": [
+        "60ebebe5-356a-499b-a1e7-2fc7fd44c911@c0be7"
+      ]
+    }
+  }
+}

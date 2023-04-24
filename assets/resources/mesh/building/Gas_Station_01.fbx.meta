@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "5e1dbe56-966e-4dd4-bb97-be1506f09952",
+  "files": [],
+  "subMetas": {
+    "f0f76": {
+      "importer": "gltf-mesh",
+      "uuid": "5e1dbe56-966e-4dd4-bb97-be1506f09952@f0f76",
+      "displayName": "",
+      "id": "f0f76",
+      "name": "Gas_Station_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "5e1dbe56-966e-4dd4-bb97-be1506f09952@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b06f5": {
+      "importer": "gltf-scene",
+      "uuid": "5e1dbe56-966e-4dd4-bb97-be1506f09952@b06f5",
+      "displayName": "",
+      "id": "b06f5",
+      "name": "Gas_Station_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "5e1dbe56-966e-4dd4-bb97-be1506f09952@b06f5",
+    "assetFinder": {
+      "meshes": [
+        "5e1dbe56-966e-4dd4-bb97-be1506f09952@f0f76"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "5e1dbe56-966e-4dd4-bb97-be1506f09952@7a3ca"
+      ],
+      "scenes": [
+        "5e1dbe56-966e-4dd4-bb97-be1506f09952@b06f5"
+      ]
+    }
+  }
+}

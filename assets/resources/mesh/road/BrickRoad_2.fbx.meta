@@ -1,0 +1,125 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "6e173e17-2391-48e3-a76b-716ffc7ae4cc",
+  "files": [],
+  "subMetas": {
+    "b5faa": {
+      "importer": "gltf-mesh",
+      "uuid": "6e173e17-2391-48e3-a76b-716ffc7ae4cc@b5faa",
+      "displayName": "",
+      "id": "b5faa",
+      "name": "polySurface17.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6b6c3": {
+      "importer": "gltf-embeded-image",
+      "uuid": "6e173e17-2391-48e3-a76b-716ffc7ae4cc@6b6c3",
+      "displayName": "",
+      "id": "6b6c3",
+      "name": "Texture_01_1.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "4c8c1": {
+      "importer": "texture",
+      "uuid": "6e173e17-2391-48e3-a76b-716ffc7ae4cc@4c8c1",
+      "displayName": "",
+      "id": "4c8c1",
+      "name": "Texture_01_1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "6e173e17-2391-48e3-a76b-716ffc7ae4cc@6b6c3"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "6e173e17-2391-48e3-a76b-716ffc7ae4cc@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d19e8": {
+      "importer": "gltf-scene",
+      "uuid": "6e173e17-2391-48e3-a76b-716ffc7ae4cc@d19e8",
+      "displayName": "",
+      "id": "d19e8",
+      "name": "BrickRoad_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "Texture_01_1",
+        "uri": "6e173e17-2391-48e3-a76b-716ffc7ae4cc@6b6c3"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "6e173e17-2391-48e3-a76b-716ffc7ae4cc@d19e8",
+    "assetFinder": {
+      "meshes": [
+        "6e173e17-2391-48e3-a76b-716ffc7ae4cc@b5faa"
+      ],
+      "skeletons": [],
+      "textures": [
+        "6e173e17-2391-48e3-a76b-716ffc7ae4cc@4c8c1"
+      ],
+      "materials": [
+        "6e173e17-2391-48e3-a76b-716ffc7ae4cc@7a3ca"
+      ],
+      "scenes": [
+        "6e173e17-2391-48e3-a76b-716ffc7ae4cc@d19e8"
+      ]
+    }
+  }
+}

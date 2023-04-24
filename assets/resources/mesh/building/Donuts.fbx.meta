@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "e9ad2ad6-8fd7-4388-afbd-502bb2e82dc0",
+  "files": [],
+  "subMetas": {
+    "5d1a4": {
+      "importer": "gltf-mesh",
+      "uuid": "e9ad2ad6-8fd7-4388-afbd-502bb2e82dc0@5d1a4",
+      "displayName": "",
+      "id": "5d1a4",
+      "name": "Donuts.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "e9ad2ad6-8fd7-4388-afbd-502bb2e82dc0@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b991b": {
+      "importer": "gltf-scene",
+      "uuid": "e9ad2ad6-8fd7-4388-afbd-502bb2e82dc0@b991b",
+      "displayName": "",
+      "id": "b991b",
+      "name": "Donuts.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "e9ad2ad6-8fd7-4388-afbd-502bb2e82dc0@b991b",
+    "assetFinder": {
+      "meshes": [
+        "e9ad2ad6-8fd7-4388-afbd-502bb2e82dc0@5d1a4"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "e9ad2ad6-8fd7-4388-afbd-502bb2e82dc0@7a3ca"
+      ],
+      "scenes": [
+        "e9ad2ad6-8fd7-4388-afbd-502bb2e82dc0@b991b"
+      ]
+    }
+  }
+}
