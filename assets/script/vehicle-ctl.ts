@@ -123,9 +123,9 @@ export class Vehicle extends Component {
     public framework: Node = null!;
 
     @property({ type: key_style })
-    public KeyBinding: key_style = key_style.RALLY;
+    public KeyBinding: key_style = key_style.NORMAL;
 
-    private _key_mapping: key_mapping = key_mapping_normal;
+    private _key_mapping: key_mapping = key_mapping_rally;
     private _key_status: key_status = new key_status();
 
     private readonly _gears = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -155,23 +155,15 @@ export class Vehicle extends Component {
     private _smoothedVelocity = new Vec3(0, 0, 0);
     private _prevPosition = new Vec3(0, 0, 0);
 
-    get keyBinding() {
-        return this.KeyBinding;
-    }
-    set keyBinding(value) {
-        this.KeyBinding = value;
-        if (value === key_style.NORMAL) {
-            this._key_mapping = key_mapping_normal;
-        } else {
-            this._key_mapping = key_mapping_rally;
-        }
-    }
-
     start() {
         // init car
         this.initCar();
         // init key mapping
-        this.keyBinding = this.KeyBinding;
+        if (this.KeyBinding === key_style.NORMAL) {
+            this._key_mapping = key_mapping_normal;
+        } else {
+            this._key_mapping = key_mapping_rally;
+        }
         // init key event
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
         input.on(Input.EventType.KEY_UP, this.onKeyRelease, this);
