@@ -1,0 +1,239 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f",
+  "files": [],
+  "subMetas": {
+    "8bbb8": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@8bbb8",
+      "displayName": "",
+      "id": "8bbb8",
+      "name": "wagon_AwheelRR.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b59c4": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@b59c4",
+      "displayName": "",
+      "id": "b59c4",
+      "name": "wagon_AwheelRL.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3d77d": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@3d77d",
+      "displayName": "",
+      "id": "3d77d",
+      "name": "wagon_A_Body_Material0.mesh",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "665ee": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@665ee",
+      "displayName": "",
+      "id": "665ee",
+      "name": "wagon_A_DoorL_Material0.mesh",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "49ed0": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@49ed0",
+      "displayName": "",
+      "id": "49ed0",
+      "name": "wagon_A_DoorL2_Material0.mesh",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "79ccd": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@79ccd",
+      "displayName": "",
+      "id": "79ccd",
+      "name": "wagon_A_DoorR2_Material0.mesh",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "475b9": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@475b9",
+      "displayName": "",
+      "id": "475b9",
+      "name": "wagon_A_DoorR_Material0.mesh",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "20cb7": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@20cb7",
+      "displayName": "",
+      "id": "20cb7",
+      "name": "wagon_AwheelFL.mesh",
+      "userData": {
+        "gltfIndex": 7
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "76c35": {
+      "importer": "gltf-mesh",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@76c35",
+      "displayName": "",
+      "id": "76c35",
+      "name": "wagon_AwheelFR.mesh",
+      "userData": {
+        "gltfIndex": 8
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cab3f": {
+      "importer": "gltf-material",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@cab3f",
+      "displayName": "",
+      "id": "cab3f",
+      "name": "PD_VehiclePack_MAT.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9dfd6": {
+      "importer": "gltf-material",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@9dfd6",
+      "displayName": "",
+      "id": "9dfd6",
+      "name": "PD_VehiclePack_bodycolor.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4cc47": {
+      "importer": "gltf-scene",
+      "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@4cc47",
+      "displayName": "",
+      "id": "4cc47",
+      "name": "Wagon_A_green.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@4cc47",
+    "assetFinder": {
+      "meshes": [
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@8bbb8",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@b59c4",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@3d77d",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@665ee",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@49ed0",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@79ccd",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@475b9",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@20cb7",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@76c35"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@cab3f",
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@9dfd6"
+      ],
+      "scenes": [
+        "71df7a01-a3b9-4e2f-80d8-f2365713f53f@4cc47"
+      ]
+    }
+  }
+}

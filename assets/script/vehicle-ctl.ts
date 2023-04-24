@@ -93,7 +93,8 @@ class car_config {
     maxPower: number;
     maxBrake: number;
     smoothBufferLength: number;
-    blendingFactor: number;
+    camera_blendingFactor: number;
+    steering_blendingFactor: number;
 };
 
 const car_preset: car_config = {
@@ -102,7 +103,8 @@ const car_preset: car_config = {
     maxPower: 1000,
     maxBrake: 1000,
     smoothBufferLength: 10,
-    blendingFactor: 0.2,
+    camera_blendingFactor: 0.2,
+    steering_blendingFactor: 0.2,
 };
 
 @ccclass('Vehicle')
@@ -126,32 +128,32 @@ export class Vehicle extends Component {
     private _key_mapping: key_mapping = key_mapping_normal;
     private _key_status: key_status = new key_status();
 
-    private _maxPower = 1000;
+    private readonly _gears = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    private readonly _speedLevels = [-20, 0, 20, 40, 60, 90, 120, 160, 200, 240, 280, 320];
+    private readonly _strengthLevels = [50, 0, 50, 25, 16.66, 11.11, 8.33, 6.25, 5.00, 4.16, 3.57, 3.12];
+    private readonly _breakForce = 1000;
+
+    private readonly _carConfig: car_config = car_preset;
+    
     private _currentGear = 0;
-    private _gears = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    private _speedLevel = 0;
-    private _speedLevels = [-20, 0, 20, 40, 60, 90, 120, 160, 200, 240, 280, 320];
-    private _strengthLevels = [50, 0, 50, 25, 16.66, 11.11, 8.33, 6.25, 5.00, 4.16, 3.57, 3.12];
     private _currentSpeed = 0;
     private _currentStrength = 0;
 
     private _currentVisionPreset: camera_vision = camera_preset['default'];
-    private _persistentVision: camera_vision = camera_vision['default'];
+    private _persistentVision: camera_vision = camera_preset['default'];
 
-    private _onAcceleration = false;
     private _steeringDelta = 0;
     
     private _bufferSize = car_preset.smoothBufferLength;
     private _bufferIndex = 0;
-    
+
     private _smoothedSteeringAngle = 0;
     private _smoothedPosition = new Vec3(0, 0, 0);
     private _smoothedOrientation = new Quat(0, 0, 0, 0);
     private _smoothedTargetVelocity = new Vec3(0, 0, 0);
-    
+
     private _smoothedVelocity = new Vec3(0, 0, 0);
     private _prevPosition = new Vec3(0, 0, 0);
-
 
     get keyBinding() {
         return this.KeyBinding;
@@ -168,10 +170,8 @@ export class Vehicle extends Component {
     start() {
         // init car
         this.initCar();
-
         // init key mapping
         this.keyBinding = this.KeyBinding;
-
         // init key event
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
         input.on(Input.EventType.KEY_UP, this.onKeyRelease, this);
@@ -179,8 +179,9 @@ export class Vehicle extends Component {
 
     update(deltaTime: number) {
         this._bufferIndex = (this._bufferIndex + 1) % this._bufferSize;
-        this.updateVision(this._bufferIndex);
-        this.updateSteering(this._bufferIndex);
+        this.updateVision();
+        this.updateSteering();
+        this.updateVelocity();
 
         this.updateVelocityInfo(deltaTime);
     }
@@ -197,7 +198,7 @@ export class Vehicle extends Component {
         if (this._currentGear > this._gears[this._gears.length - 1]) {
             this._currentGear = this._gears[this._gears.length - 1];
         }
-        this.setGear(this._currentGear);
+        this._setGear(this._currentGear);
     }
 
     initCar () {
@@ -222,25 +223,16 @@ export class Vehicle extends Component {
         }
     }
 
-    setGear (gear: number) {
-        this._currentGear = gear;
-        const index = this._gears.indexOf(gear);
-        this._speedLevel = index;
-        this._currentStrength = this._strengthLevels[index] / 50.0; // divide by factor to make it more realistic
-        this._currentSpeed = this._speedLevels[index];
-        
-        if (this._onAcceleration) {
-            this._setDrivingSpeed(this._currentSpeed);
-            this._setDrivingForce(this._currentStrength);
+    updateSteering() {
+        const Status = this._key_status;
+        if (!Status.left && !Status.right) {
+            this._steeringDelta = 0;
         }
-    }
-
-    updateSteering(index: number) {
         this._smoothedSteeringAngle = math.lerp(this._smoothedSteeringAngle, this._steeringDelta, 0.08);
         this._setSteeringAngle(this._smoothedSteeringAngle);
     }
 
-    updateVision (index: number) {
+    updateVision () {
         const vision = this._currentVisionPreset;
         const position = this.car.getWorldPosition();
         const rotation = this.car.getWorldRotation();
@@ -260,7 +252,21 @@ export class Vehicle extends Component {
         this.mainCamera.node.setWorldRotation(targetRotation);
     }
 
-    updateVelocity (deltaTime: number) {
+    updateVelocity () {
+        const Status = this._key_status;
+        if (Status.accelerate && !Status.brake && !Status.handbrake) {
+            this._setDrivingSpeed(this._currentSpeed);
+            this._setDrivingForce(this._currentStrength);
+        } else if (Status.brake && !Status.handbrake) {
+            this._setDrivingSpeed(-this._currentSpeed);
+            this._setDrivingForce(this._currentStrength);
+        } else if (Status.handbrake) {
+            this._setDrivingSpeed(0);
+            this._setDrivingForce(this._breakForce);
+        } else {
+            this._setDrivingSpeed(0);
+            this._setDrivingForce(0);
+        }
     }
 
     updateVelocityInfo (deltaTime: number) {
@@ -276,17 +282,18 @@ export class Vehicle extends Component {
     }
 
     resetTo(position: Vec3, orientation: Quat) {
-        this.setGear(0);
-        this.resetRigidBody(this.car.getChildByName('framework')!);
-        this.resetRigidBody(this.car.getChildByName('body')!);
-        this.resetRigidBody(this.car.getChildByName('Wheel-000')!);
-        this.resetRigidBody(this.car.getChildByName('Wheel-001')!);
-        this.resetRigidBody(this.car.getChildByName('Wheel-010')!);
-        this.resetRigidBody(this.car.getChildByName('Wheel-011')!);
-        this.resetRigidBody(this.car.getChildByName('hub-000')!);
-        this.resetRigidBody(this.car.getChildByName('hub-001')!);
-        this.resetRigidBody(this.car.getChildByName('hub-010')!);
-        this.resetRigidBody(this.car.getChildByName('hub-011')!);
+        // better re instantiate the car preset.
+        this._setGear(0);
+        this._resetRigidBody(this.car.getChildByName('framework')!);
+        this._resetRigidBody(this.car.getChildByName('body')!);
+        this._resetRigidBody(this.car.getChildByName('Wheel-000')!);
+        this._resetRigidBody(this.car.getChildByName('Wheel-001')!);
+        this._resetRigidBody(this.car.getChildByName('Wheel-010')!);
+        this._resetRigidBody(this.car.getChildByName('Wheel-011')!);
+        this._resetRigidBody(this.car.getChildByName('hub-000')!);
+        this._resetRigidBody(this.car.getChildByName('hub-001')!);
+        this._resetRigidBody(this.car.getChildByName('hub-010')!);
+        this._resetRigidBody(this.car.getChildByName('hub-011')!);
         this.car.setWorldPosition(position);
         this.car.setWorldRotation(orientation);
         const framework = this.car.getChildByName('framework')!;
@@ -296,7 +303,7 @@ export class Vehicle extends Component {
         this.carBody.setWorldRotation(orientation);
     }
 
-    resetRigidBody(body: Node) {
+    _resetRigidBody(body: Node) {
         const rigid = body.getComponent(RigidBody);
         if (rigid) {
             rigid.clearState();
@@ -348,6 +355,13 @@ export class Vehicle extends Component {
         }
     }
 
+    _setGear (gear: number) {
+        this._currentGear = gear;
+        const index = this._gears.indexOf(gear);
+        this._currentStrength = this._strengthLevels[index] / 50.0;
+        this._currentSpeed = this._speedLevels[index] * 5;
+    }
+
     _setSteeringAngle(angle: number) {
         const com0 = this.frontLeftHub.getComponent(physics.ConfigurableConstraint);
         if (com0) {
@@ -376,7 +390,6 @@ export class Vehicle extends Component {
             case Mapping.accelerate:
                 this._setDrivingSpeed(this._currentSpeed);
                 this._setDrivingForce(this._currentStrength);
-                this._onAcceleration = true;
                 Status.accelerate = true;
                 break;
             case Mapping.left:
@@ -428,17 +441,12 @@ export class Vehicle extends Component {
         const Status = this._key_status;
         switch (e.keyCode) {
             case Mapping.accelerate:
-                this._setDrivingForce(0);
-                this._setDrivingSpeed(0);
-                this._onAcceleration = false;
                 Status.accelerate = false;
                 break;
             case Mapping.left:
-                this._steeringDelta = 0;
                 Status.left = false;
                 break;
             case Mapping.right:
-                this._steeringDelta = 0;
                 Status.right = false;
                 break;
             case Mapping.gearDown:
