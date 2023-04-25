@@ -3,6 +3,10 @@ const { ccclass, property } = _decorator;
 
 @ccclass('mine')
 export class mine extends Component {
+
+    private activeTime: number = 0;
+    private currentTime: number = 0;
+
     start() {
         const collider = this.getComponent(Collider);
         collider?.on('onCollisionEnter', this.onCollision, this);
@@ -10,13 +14,18 @@ export class mine extends Component {
     }
 
     update(deltaTime: number) {
-        
+        this.currentTime += deltaTime;
     }
 
     onCollision(event: ICollisionEvent) {
+        if (this.currentTime - this.activeTime < 5) {
+            return;
+        }
+
         const rigidbody = event.otherCollider.node.getComponent(RigidBody);
         let impulse = new Vec3(0, 100, 0);
         rigidbody?.applyImpulse(impulse);
+        this.activeTime = this.currentTime;
     }
 }
 

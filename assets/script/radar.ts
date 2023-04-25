@@ -1,4 +1,5 @@
 import { _decorator, Component, Mat4, Node, Quat, Vec2, Vec3, Vec4 } from 'cc';
+import { missile } from './missile';
 const { ccclass, property } = _decorator;
 
 @ccclass('Radar')
@@ -44,7 +45,7 @@ export class Radar extends Component {
 
         let dot = Vec2.dot(dirv2, Vec2.UNIT_X);
         const current = Math.acos(dot);
-        if (current >= this.curr1 && current <= this.curr2) {
+        if (current >= this.curr1 && current <= this.curr2 && this.missile.getComponent(missile).launch) {
             this.pos = pos;
         }
     }
