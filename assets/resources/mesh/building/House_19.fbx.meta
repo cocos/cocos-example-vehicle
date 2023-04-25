@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "64bec703-b417-4859-b7c1-2a6428fb8aef",
+  "files": [],
+  "subMetas": {
+    "25457": {
+      "importer": "gltf-scene",
+      "uuid": "64bec703-b417-4859-b7c1-2a6428fb8aef@25457",
+      "displayName": "",
+      "id": "25457",
+      "name": "House_19.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5674c": {
+      "importer": "gltf-mesh",
+      "uuid": "64bec703-b417-4859-b7c1-2a6428fb8aef@5674c",
+      "displayName": "",
+      "id": "5674c",
+      "name": "House_19.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "64bec703-b417-4859-b7c1-2a6428fb8aef@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "64bec703-b417-4859-b7c1-2a6428fb8aef@25457",
+    "assetFinder": {
+      "meshes": [
+        "64bec703-b417-4859-b7c1-2a6428fb8aef@5674c"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "64bec703-b417-4859-b7c1-2a6428fb8aef@7a3ca"
+      ],
+      "scenes": [
+        "64bec703-b417-4859-b7c1-2a6428fb8aef@25457"
+      ]
+    }
+  }
+}

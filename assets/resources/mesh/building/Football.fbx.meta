@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "42c8c1a3-9523-4e41-8579-3c8796a156ab",
+  "files": [],
+  "subMetas": {
+    "f2eac": {
+      "importer": "gltf-mesh",
+      "uuid": "42c8c1a3-9523-4e41-8579-3c8796a156ab@f2eac",
+      "displayName": "",
+      "id": "f2eac",
+      "name": "Football.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "42c8c1a3-9523-4e41-8579-3c8796a156ab@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5d2b1": {
+      "importer": "gltf-scene",
+      "uuid": "42c8c1a3-9523-4e41-8579-3c8796a156ab@5d2b1",
+      "displayName": "",
+      "id": "5d2b1",
+      "name": "Football.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "42c8c1a3-9523-4e41-8579-3c8796a156ab@5d2b1",
+    "assetFinder": {
+      "meshes": [
+        "42c8c1a3-9523-4e41-8579-3c8796a156ab@f2eac"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "42c8c1a3-9523-4e41-8579-3c8796a156ab@7a3ca"
+      ],
+      "scenes": [
+        "42c8c1a3-9523-4e41-8579-3c8796a156ab@5d2b1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c4ec3a84-360d-49c0-83b5-e374eaf11c8f",
+  "files": [],
+  "subMetas": {
+    "65af0": {
+      "importer": "gltf-mesh",
+      "uuid": "c4ec3a84-360d-49c0-83b5-e374eaf11c8f@65af0",
+      "displayName": "",
+      "id": "65af0",
+      "name": "House_04.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "c4ec3a84-360d-49c0-83b5-e374eaf11c8f@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fcb62": {
+      "importer": "gltf-scene",
+      "uuid": "c4ec3a84-360d-49c0-83b5-e374eaf11c8f@fcb62",
+      "displayName": "",
+      "id": "fcb62",
+      "name": "House_04.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "c4ec3a84-360d-49c0-83b5-e374eaf11c8f@fcb62",
+    "assetFinder": {
+      "meshes": [
+        "c4ec3a84-360d-49c0-83b5-e374eaf11c8f@65af0"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "c4ec3a84-360d-49c0-83b5-e374eaf11c8f@7a3ca"
+      ],
+      "scenes": [
+        "c4ec3a84-360d-49c0-83b5-e374eaf11c8f@fcb62"
+      ]
+    }
+  }
+}

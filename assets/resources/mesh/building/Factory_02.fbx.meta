@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "e421b4ad-9424-4c34-867a-4090d75b3b2c",
+  "files": [],
+  "subMetas": {
+    "4e5d5": {
+      "importer": "gltf-mesh",
+      "uuid": "e421b4ad-9424-4c34-867a-4090d75b3b2c@4e5d5",
+      "displayName": "",
+      "id": "4e5d5",
+      "name": "Factory_02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "e421b4ad-9424-4c34-867a-4090d75b3b2c@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d28c8": {
+      "importer": "gltf-scene",
+      "uuid": "e421b4ad-9424-4c34-867a-4090d75b3b2c@d28c8",
+      "displayName": "",
+      "id": "d28c8",
+      "name": "Factory_02.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "e421b4ad-9424-4c34-867a-4090d75b3b2c@d28c8",
+    "assetFinder": {
+      "meshes": [
+        "e421b4ad-9424-4c34-867a-4090d75b3b2c@4e5d5"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "e421b4ad-9424-4c34-867a-4090d75b3b2c@7a3ca"
+      ],
+      "scenes": [
+        "e421b4ad-9424-4c34-867a-4090d75b3b2c@d28c8"
+      ]
+    }
+  }
+}
