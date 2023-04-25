@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, ScrollView, assetManager, instantiate, SceneAsset, Scene, UITransform, Sprite, RichText, Label } from 'cc';
+import { _decorator, Component, Node, Prefab, ScrollView, assetManager, instantiate, SceneAsset, Scene, UITransform, Sprite, RichText, Label, SpriteFrame } from 'cc';
 import { chapter_item } from './chapter-item';
 import { scene_registed } from './scene_data';
 const { ccclass, property } = _decorator;
@@ -17,35 +17,11 @@ export class scene_manager extends Component {
         const scene_dirs = ["resources"];
         console.log(`scene_dirs: ${scene_dirs}`);
 
-        // if (this.itemPrefab === null) {
-        //     console.log(`itemPrefab is null`);
-        //     return;
-        // }
+        if (this.itemPrefab === null) {
+            console.log(`itemPrefab is null`);
+            return;
+        }
 
-        scene_dirs.forEach((item: string) => {
-            console.log (`item: ${item}`);
-            assetManager.loadBundle(item, (err, bundle) => {
-                if (err) {
-                    console.log(`err: ${err}`);
-                    return;
-                }
-
-                // bundle.loadDir("prefab", SceneAsset, (err, assets) => {
-                //     if (err) {
-                //         console.log(`err: ${err}`);
-                //         return;
-                //     }
-
-                //     console.log(`assets: ${assets.length}`);
-
-                //     // assets.forEach((item: SceneAsset) => {
-                //     //     // this._sceneList.push(item);
-                //     //     console.log(`scene: ${item.name}`);
-                //     // });
-                // });
-            });
-
-        });
         assetManager.resources!.config.scenes.forEach((item: any) => {
             this._sceneList.push(item.url);
         });
@@ -75,6 +51,26 @@ export class scene_manager extends Component {
             }
             this.node.addChild(item);
             item.setPosition(0, -itemTrans.height * index, 0);
+        });
+
+        const cover_path = "texture/scene_cover/";
+        const bundle = assetManager.getBundle("resources");
+        bundle.loadDir(cover_path, SpriteFrame, (err, assets) => {
+            if (err) {
+                console.log(`err: ${err}`);
+                return;
+            }
+
+            this._sceneItems.forEach((item: Node) => {
+                const sprite = item.getChildByName("Sprite").getComponent(Sprite);
+                const sceneData = scene_registed.get(item.name);
+                if (sceneData) {
+                    const spriteFrame = assets.find((item) => item.name === sceneData.cover);
+                    if (spriteFrame) {
+                        sprite.spriteFrame = spriteFrame;
+                    }
+                }
+            });
         });
 
         // get the content container, resize it

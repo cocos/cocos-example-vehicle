@@ -9,11 +9,11 @@ class SceneData {
 export const scene_registed: Map<string, SceneData> = new Map<string, SceneData>(
     [
         [
-            "car", 
+            "Level1", 
             { 
-                title: "car title",
-                description: "car description",
-                cover: "car cover",
+                title: "Level 1",
+                description: "scene description",
+                cover: "Level1",
             }
         ],
     ]

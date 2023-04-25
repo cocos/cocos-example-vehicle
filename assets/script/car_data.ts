@@ -110,7 +110,7 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
             {
                 name: "car",
                 description: "car description",
-                cover: "car cover",
+                cover: "car",
                 config: {
                     maxSteeringAngle: 30,
                     maxSpeed: 100,
@@ -121,5 +121,26 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
                 prefab: "default",
             }
         ],
+        [
+            "benz",
+            {
+                name: "benz",
+                description: "benz description",
+                cover: "benz",
+                config: {
+                    maxSteeringAngle: 30,
+                    maxSpeed: 100,
+                    maxPower: 100,
+                    maxBrake: 100,
+                    smoothBufferLength: 10,
+                },
+                prefab: "benz",
+            }
+        ],
     ]
 );
+
+export let car_selected = "car";
+export function select_car (car: string) {
+    car_selected = car;
+}
