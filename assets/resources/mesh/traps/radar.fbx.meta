@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.4",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "0da23893-ff14-4d76-8be8-198e682b12ea",
+  "files": [],
+  "subMetas": {
+    "2feb1": {
+      "importer": "gltf-mesh",
+      "uuid": "0da23893-ff14-4d76-8be8-198e682b12ea@2feb1",
+      "displayName": "",
+      "id": "2feb1",
+      "name": "Circle.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c244a": {
+      "importer": "gltf-mesh",
+      "uuid": "0da23893-ff14-4d76-8be8-198e682b12ea@c244a",
+      "displayName": "",
+      "id": "c244a",
+      "name": "Cylinder.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5cd1b": {
+      "importer": "gltf-scene",
+      "uuid": "0da23893-ff14-4d76-8be8-198e682b12ea@5cd1b",
+      "displayName": "",
+      "id": "5cd1b",
+      "name": "radar.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "0da23893-ff14-4d76-8be8-198e682b12ea@5cd1b",
+    "assetFinder": {
+      "meshes": [
+        "0da23893-ff14-4d76-8be8-198e682b12ea@2feb1",
+        "0da23893-ff14-4d76-8be8-198e682b12ea@c244a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "0da23893-ff14-4d76-8be8-198e682b12ea@5cd1b"
+      ]
+    }
+  }
+}
