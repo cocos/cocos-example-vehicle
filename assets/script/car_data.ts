@@ -106,11 +106,11 @@ export class car_info {
 export const car_registed: Map<string, car_info> = new Map<string, car_info>(
     [
         [
-            "car",
+            "Huracan",
             {
-                name: "car",
-                description: "car description",
-                cover: "car",
+                name: "Huracan",
+                description: "Huracan",
+                cover: "Huracan",
                 config: {
                     maxSteeringAngle: 30,
                     maxSpeed: 100,
@@ -118,15 +118,15 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
                     maxBrake: 100,
                     smoothBufferLength: 10,
                 },
-                prefab: "default",
+                prefab: "Huracan",
             }
         ],
         [
-            "benz",
+            "Ferrari",
             {
-                name: "benz",
-                description: "benz description",
-                cover: "benz",
+                name: "Ferrari",
+                description: "Ferrari",
+                cover: "Ferrari",
                 config: {
                     maxSteeringAngle: 30,
                     maxSpeed: 100,
@@ -134,9 +134,57 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
                     maxBrake: 100,
                     smoothBufferLength: 10,
                 },
-                prefab: "benz",
+                prefab: "Ferrari",
             }
         ],
+        [
+            'Porsche',
+            {
+                name: 'Porsche',
+                description: 'Porsche',
+                cover: 'Porsche',
+                config: {
+                    maxSteeringAngle: 30,
+                    maxSpeed: 100,
+                    maxPower: 100,
+                    maxBrake: 100,
+                    smoothBufferLength: 10,
+                },
+                prefab: 'Porsche',
+            }
+        ],
+        [
+            'SUV',
+            {
+                name: 'SUV',
+                description: 'SUV',
+                cover: 'SUV',
+                config: {
+                    maxSteeringAngle: 30,
+                    maxSpeed: 100,
+                    maxPower: 100,
+                    maxBrake: 100,
+                    smoothBufferLength: 10,
+                },
+                prefab: 'SUV',
+            }
+        ],
+        [
+            'Truck',
+            {
+                name: 'Truck',
+                description: 'Truck',
+                cover: 'Truck',
+                config: {
+                    maxSteeringAngle: 30,
+                    maxSpeed: 100,
+                    maxPower: 100,
+                    maxBrake: 100,
+                    smoothBufferLength: 10,
+                },
+                prefab: 'Truck',
+            }
+        ]
     ]
 );
 
