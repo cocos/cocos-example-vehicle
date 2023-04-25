@@ -7,6 +7,8 @@ export class menu_ctl extends Component {
     @property({type: Node})
     public mainMenu: Node = null!;
     @property({type: Node})
+    public garagePanel: Node = null!;
+    @property({type: Node})
     public settingPanel: Node = null!;
     @property({type: Node})
     public chapterPanel: Node = null!;
@@ -24,11 +26,16 @@ export class menu_ctl extends Component {
         );
     }
 
-    onContinueClicked () {
-        director.loadScene(
-            'free-travel',
-            ()=>{}, ()=>{}
-        );
+    onGarageClicked () {
+        console.log(`Garage`);
+        this.mainMenu.active = false;
+        this.garagePanel.active = true;
+    }
+
+    onGarageClosed() {
+        console.log(`Garage Closed`);
+        this.mainMenu.active = true;
+        this.garagePanel.active = false;
     }
 
     onChapterClicked () {
