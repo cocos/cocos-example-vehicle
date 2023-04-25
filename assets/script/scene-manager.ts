@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Prefab, ScrollView, assetManager, instantiate, SceneAsset, Scene, UITransform, Sprite, RichText, Label } from 'cc';
 import { chapter_item } from './chapter-item';
+import { scene_registed } from './scene_data';
 const { ccclass, property } = _decorator;
 
 @ccclass('scene_manager')
@@ -53,7 +54,7 @@ export class scene_manager extends Component {
             const node = instantiate(this.itemPrefab);
             const chapter = node.getComponent(chapter_item);
             // only get the last part of the path
-            node.name = item.split("/").pop()!;
+            node.name = item.split("/").pop()!.split(".")[0];
             chapter.updateItem(this._sceneItems.length, item);
             this.scrollView.content.addChild(node);
             this._sceneItems.push(node);
@@ -65,7 +66,13 @@ export class scene_manager extends Component {
             const sprite = item.getChildByName("Sprite");
             const title = item.getChildByName("Title").getComponent(RichText);
             const desc = item.getChildByName("Detail").getComponent(Label);
-            title.string = `<color=#ff0000>Chapter ${index} ${item.name}</color>`;
+            const sceneData = scene_registed.get(item.name);
+            if (sceneData) {
+                title.string = `<color=#ff0000>Chapter ${index} ${sceneData.title}</color>`;
+                desc.string = sceneData.description;
+            } else {
+                title.string = `<color=#ff0000>Chapter ${index} ${item.name}</color>`;
+            }
             this.node.addChild(item);
             item.setPosition(0, -itemTrans.height * index, 0);
         });

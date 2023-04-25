@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Scene",
-    "_name": "free-travel",
+    "_name": "free-travel-001",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -1143,6 +1143,8 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_reflectionProbeId": 0,
+    "_reflectionProbeBlendId": -1,
+    "_reflectionProbeBlendWeight": 0,
     "_enableMorph": true,
     "_id": "8aAPA1hcNMSbLZ2Xg6GWEJ"
   },
@@ -1164,11 +1166,7 @@
     "_useLightProbe": false,
     "_bakeToLightProbe": true,
     "_reflectionProbeType": 1,
-    "_bakeToReflectionProbe": false,
-    "_probeCubemap": {
-      "__uuid__": "c3a3d834-c7fb-4be6-8067-36f41e8e56db@b47c0",
-      "__expectedType__": "cc.TextureCube"
-    }
+    "_bakeToReflectionProbe": false
   },
   {
     "__type__": "cc.PrefabInfo",
