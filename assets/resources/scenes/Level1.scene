@@ -36,7 +36,7 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 2709
+      "__id__": 2711
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -67,7 +67,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 2710
+      "__id__": 2712
     },
     "_id": "460329b6-a3a6-42b3-b5bc-5a5dda3ea544"
   },
@@ -81728,10 +81728,10 @@
         "__id__": 2625
       },
       {
-        "__id__": 2698
+        "__id__": 2700
       },
       {
-        "__id__": 2704
+        "__id__": 2706
       }
     ],
     "_active": true,
@@ -81808,16 +81808,16 @@
     ],
     "propertyOverrides": [
       {
-        "__id__": 2699
-      },
-      {
         "__id__": 2701
       },
       {
-        "__id__": 2702
+        "__id__": 2703
       },
       {
-        "__id__": 2703
+        "__id__": 2704
+      },
+      {
+        "__id__": 2705
       }
     ],
     "removedComponents": []
@@ -82742,7 +82742,7 @@
     "main": null,
     "launchList": [
       {
-        "__id__": 2698
+        "__id__": 2700
       }
     ],
     "switchCamera": true,
@@ -82794,6 +82794,9 @@
       },
       {
         "__id__": 2697
+      },
+      {
+        "__id__": 2698
       }
     ],
     "removedComponents": []
@@ -82861,6 +82864,25 @@
     }
   },
   {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 2699
+    },
+    "propertyPath": [
+      "DefaultCarPrefab"
+    ],
+    "value": {
+      "__uuid__": "c3853677-7e90-4834-8d46-a7874114d0e7",
+      "__expectedType__": "cc.Prefab"
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "48wZkWpL5DUYfzo01W8qCs"
+    ]
+  },
+  {
     "__type__": "cc.Node",
     "_name": "launch",
     "_objFlags": 0,
@@ -82903,7 +82925,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 2700
+      "__id__": 2702
     },
     "propertyPath": [
       "_name"
@@ -82919,7 +82941,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 2700
+      "__id__": 2702
     },
     "propertyPath": [
       "_lpos"
@@ -82934,7 +82956,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 2700
+      "__id__": 2702
     },
     "propertyPath": [
       "_lrot"
@@ -82950,7 +82972,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 2700
+      "__id__": 2702
     },
     "propertyPath": [
       "_euler"
@@ -82973,13 +82995,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 2705
-      },
-      {
         "__id__": 2707
       },
       {
-        "__id__": 2708
+        "__id__": 2709
+      },
+      {
+        "__id__": 2710
       }
     ],
     "_prefab": null,
@@ -83017,7 +83039,7 @@
     "_name": "Torus<ModelComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 2704
+      "__id__": 2706
     },
     "_enabled": true,
     "__prefab": null,
@@ -83029,7 +83051,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 2706
+      "__id__": 2708
     },
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@40ece",
@@ -83069,7 +83091,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 2704
+      "__id__": 2706
     },
     "_enabled": true,
     "__prefab": null,
@@ -83094,7 +83116,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 2704
+      "__id__": 2706
     },
     "_enabled": true,
     "__prefab": null,
@@ -83164,22 +83186,22 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 2711
-    },
-    "shadows": {
-      "__id__": 2712
-    },
-    "_skybox": {
       "__id__": 2713
     },
-    "fog": {
+    "shadows": {
       "__id__": 2714
     },
-    "octree": {
+    "_skybox": {
       "__id__": 2715
     },
-    "lightProbeInfo": {
+    "fog": {
       "__id__": 2716
+    },
+    "octree": {
+      "__id__": 2717
+    },
+    "lightProbeInfo": {
+      "__id__": 2718
     },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false
