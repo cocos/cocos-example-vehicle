@@ -46,6 +46,8 @@ export class missile extends Component {
         this.main.node.active = true;
         this.launchIndex++;
         this.launchIndex = this.launchIndex % this.launchList.length;
+
+        this.launch = false;
     }
 
     start() {
