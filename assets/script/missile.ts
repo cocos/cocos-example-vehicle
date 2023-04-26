@@ -23,6 +23,9 @@ export class missile extends Component {
     @property
     public switchCamera: boolean = true;
 
+    @property
+    public launch: boolean = true;
+
     private acc = 5.0;
     private currentSpeed: number = 0.0;
     private maxSpeed: number = 10.0;
@@ -43,6 +46,8 @@ export class missile extends Component {
         this.main.node.active = true;
         this.launchIndex++;
         this.launchIndex = this.launchIndex % this.launchList.length;
+
+        this.launch = false;
     }
 
     start() {
@@ -50,6 +55,10 @@ export class missile extends Component {
     }
 
     update(deltaTime: number) {
+        if (!this.launch) {
+            return;
+        }
+
         const pos = this.node.getWorldPosition();
         const rot = this.node.getWorldRotation();
 
