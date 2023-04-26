@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, Mesh, primitives, MeshRenderer, Material, RigidBody, SphereCollider, Vec3, Quat } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('basketball')
-export class basketball extends Component {
+@ccclass('emitBomb')
+export class emitBomb extends Component {
 
     @property(Node)
     public target: Node = null;
