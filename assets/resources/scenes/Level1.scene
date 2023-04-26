@@ -36,7 +36,7 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 2719
+      "__id__": 2723
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -67,7 +67,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 2720
+      "__id__": 2724
     },
     "_id": "460329b6-a3a6-42b3-b5bc-5a5dda3ea544"
   },
@@ -1007,6 +1007,9 @@
       },
       {
         "__id__": 2629
+      },
+      {
+        "__id__": 2719
       }
     ],
     "_active": true,
@@ -82971,6 +82974,7 @@
     "label": {
       "__id__": 28
     },
+    "collider": null,
     "_id": "feum+i8J1IqqmfYVTrAemz"
   },
   {
@@ -83044,7 +83048,7 @@
       "DefaultCarPrefab"
     ],
     "value": {
-      "__uuid__": "c3853677-7e90-4834-8d46-a7874114d0e7",
+      "__uuid__": "3fe15f09-657b-452e-b25d-dcdcc3a5744c",
       "__expectedType__": "cc.Prefab"
     }
   },
@@ -83298,6 +83302,130 @@
     "_id": "43vwwIXmFLwZu1dL7/R4US"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "GameEnd",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 36
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 2720
+      },
+      {
+        "__id__": 2722
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 10.892,
+      "y": -1.161,
+      "z": -22.226
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 4,
+      "y": 0.2,
+      "z": 8
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "2911rPOatCwKv0iAdbHGkA"
+  },
+  {
+    "__type__": "cc.MeshRenderer",
+    "_name": "Cube<ModelComponent>",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2719
+    },
+    "_enabled": false,
+    "__prefab": null,
+    "_materials": [
+      {
+        "__uuid__": "620b6bf3-0369-4560-837f-2a2c00b73c26",
+        "__expectedType__": "cc.Material"
+      }
+    ],
+    "_visFlags": 0,
+    "bakeSettings": {
+      "__id__": 2721
+    },
+    "_mesh": {
+      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
+      "__expectedType__": "cc.Mesh"
+    },
+    "_shadowCastingMode": 1,
+    "_shadowReceivingMode": 1,
+    "_shadowBias": 0,
+    "_shadowNormalBias": 0,
+    "_reflectionProbeId": -1,
+    "_enableMorph": true,
+    "_id": "cfeMSEJp1Ha46+m4gB7ExE"
+  },
+  {
+    "__type__": "cc.ModelBakeSettings",
+    "texture": null,
+    "uvParam": {
+      "__type__": "cc.Vec4",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 0
+    },
+    "_bakeable": false,
+    "_castShadow": true,
+    "_receiveShadow": true,
+    "_recieveShadow": true,
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
+  },
+  {
+    "__type__": "cc.BoxCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2719
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "_material": null,
+    "_isTrigger": false,
+    "_center": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_size": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_id": "0b2dDK+BxH0I6SsuYGmb0Y"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": null,
     "asset": null,
@@ -83358,22 +83486,22 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 2721
-    },
-    "shadows": {
-      "__id__": 2722
-    },
-    "_skybox": {
-      "__id__": 2723
-    },
-    "fog": {
-      "__id__": 2724
-    },
-    "octree": {
       "__id__": 2725
     },
-    "lightProbeInfo": {
+    "shadows": {
       "__id__": 2726
+    },
+    "_skybox": {
+      "__id__": 2727
+    },
+    "fog": {
+      "__id__": 2728
+    },
+    "octree": {
+      "__id__": 2729
+    },
+    "lightProbeInfo": {
+      "__id__": 2730
     },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false

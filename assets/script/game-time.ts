@@ -1,4 +1,4 @@
-import { _decorator, Component, Label, Node } from 'cc';
+import { _decorator, Collider, Component, Label, Node, ICollisionEvent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('game_time')
