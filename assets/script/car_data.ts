@@ -141,7 +141,7 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
             'Porsche',
             {
                 name: 'Porsche',
-                description: 'Execellent engineering, sleek design, and impressive speed with advanced technology and high-quality materials.',
+                description: 'Execellent engineering, and impressive speed with advanced technology and high-quality materials.',
                 cover: 'Porsche',
                 config: {
                     maxSteeringAngle: 30,

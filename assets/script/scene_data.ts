@@ -16,5 +16,13 @@ export const scene_registed: Map<string, SceneData> = new Map<string, SceneData>
                 cover: "Level1",
             }
         ],
+        [
+            "FreeTravel", 
+            { 
+                title: "Free Travel",
+                description: "Free Travel",
+                cover: "Level1",
+            }
+        ],
     ]
 );
