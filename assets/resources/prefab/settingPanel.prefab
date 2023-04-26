@@ -235,6 +235,8 @@
       "__id__": 0
     },
     "fileId": "61rqXOqm1JRpT58FIl5yE/",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -1337,7 +1339,7 @@
       "__id__": 51
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 53
@@ -1588,7 +1590,7 @@
       "__id__": 51
     },
     "checkEvents": [],
-    "_isChecked": true,
+    "_isChecked": false,
     "_checkMark": {
       "__id__": 55
     },
@@ -4500,12 +4502,12 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "c943ba93-0cf4-4794-80fc-ae1f40b2c0eb@f9941",
+      "__uuid__": "f3fe790e-68cd-406e-a274-d31cecafd654@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
     "_fillType": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
       "x": 0,

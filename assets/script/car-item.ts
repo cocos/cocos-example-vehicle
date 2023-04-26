@@ -9,14 +9,17 @@ export class car_item extends Component {
 
     private _infoPanel: Label = null!;
 
-    updateItem(idx: number, name: string, ) {
+    updateItem(idx: number, name: string, panel: Label) {
         this._name = name;
+        this._infoPanel = panel;
     }
 
     loadCar() {
         return new Promise<void>((resovle, reject) => {
             select_car(this._name);
             console.log(`select car: ${car_selected}`);
+            const str = `${this._name} selected`;
+            this._infoPanel.string = str;
             resovle();
         });
     }

@@ -2,8 +2,20 @@ import { _decorator, Component, Node, Quat, cclegacy,
     RigidBody, Vec3, input, Input, EventKeyboard, 
     KeyCode, Camera, ConfigurableConstraint, physics, math, Enum, Prefab, resources, AssetManager, assetManager, instantiate, error, director, TERRAIN_HEIGHT_BASE,
 } from 'cc';
-import { camera_preset, camera_vision, car_config, key_mapping, key_mapping_normal, key_mapping_rally, key_status, key_style } from './car_data';
-import { car_selected } from './car_setting';
+import { 
+    camera_preset,
+    camera_vision,
+    car_config,
+    key_mapping,
+    key_mapping_normal,
+    key_mapping_rally,
+    key_status,
+    key_style
+} from './car_data';
+import {
+    car_selected,
+    key_mapping_selected
+} from './car_setting';
 
 const { ccclass, property } = _decorator;
 
@@ -28,10 +40,7 @@ export class Vehicle extends Component {
     private _rearRightWheel: Node = null!;
     private _frontLeftHub: Node = null!;
     private _frontRightHub: Node = null!;
-    private _carBody: Node = null!;
     private _mainCamera: Camera = null!;
-    private _framework: Node = null!;
-    private _KeyBinding: key_style = key_style.NORMAL;
 
     private _key_mapping: key_mapping = key_mapping_rally;
     private _key_status: key_status = new key_status();
@@ -67,7 +76,7 @@ export class Vehicle extends Component {
         // init car
         this.initCar();
         // init key mapping
-        if (this._KeyBinding === key_style.NORMAL) {
+        if (key_mapping_selected === key_style.NORMAL) {
             this._key_mapping = key_mapping_normal;
         } else {
             this._key_mapping = key_mapping_rally;
@@ -115,8 +124,6 @@ export class Vehicle extends Component {
 
             this._car.setWorldPosition(pos);
             this._car.setWorldRotation(rot);
-            this._carBody = this._car.getChildByName('body')!;
-            this._framework = this._car.getChildByName('framework')!;
             this._frontLeftWheel = this._car.getChildByName('Wheel-000')!;
             this._frontRightWheel = this._car.getChildByName('Wheel-001')!;
             this._rearLeftWheel = this._car.getChildByName('Wheel-010')!;

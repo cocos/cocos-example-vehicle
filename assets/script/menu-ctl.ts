@@ -21,7 +21,7 @@ export class menu_ctl extends Component {
 
     onStartClicked () {
         director.loadScene(
-            'free-travel',
+            'Level1',
             ()=>{}, ()=>{}
         );
     }

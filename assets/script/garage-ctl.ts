@@ -11,6 +11,8 @@ export class garage_ctl extends Component {
     public carItem: Prefab = null!;
     @property({type: PageView})
     public pageView: PageView = null!;
+    @property({type: Label})
+    public infoPanel: Label = null!;
 
     start() {
         const cover_path = "texture/car_cover/";
@@ -25,7 +27,7 @@ export class garage_ctl extends Component {
             for (let [key, value] of car_registed) {
                 let carItem = instantiate(this.carItem);
                 const carItemCtl = carItem.getComponent(car_item);
-                carItemCtl.updateItem(this.pageView.getPages().length, key);
+                carItemCtl.updateItem(this.pageView.getPages().length, key, this.infoPanel);
 
                 const sprite = carItem.getChildByName("Sprite").getComponent(Sprite);
                 const label = carItem.getChildByName("Label").getComponent(Label);
