@@ -24,17 +24,19 @@ export class radar_screen extends Component {
             this.node.scene.walk((node) => {
                 if (node.name === 'radar') {
                     this.radar = node;
+                    Vec3.copy(this.last, this.radar.worldPosition);
                 }
             });
-        }
-        
-        if (this.radar != null) {
-            Vec3.copy(this.last, this.radar.worldPosition);
         }
     }
 
     update(deltaTime: number) {
-        this.init();
+        this.node.scene.walk((node) => {
+            if (node.name === 'radar') {
+                this.radar = node;
+                // Vec3.copy(this.last, this.radar.worldPosition);
+            }
+        });
 
         this.dt += deltaTime;
         if (this.frameNum % 20 === 0 && this.radar !== null) {
