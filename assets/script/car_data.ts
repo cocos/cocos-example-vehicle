@@ -109,7 +109,7 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
             "Huracan",
             {
                 name: "Huracan",
-                description: "Huracan",
+                description: "Powerful V10 engine, a luxurious interior with advanced technology.",
                 cover: "Huracan",
                 config: {
                     maxSteeringAngle: 30,
@@ -125,7 +125,7 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
             "Ferrari",
             {
                 name: "Ferrari",
-                description: "Ferrari",
+                description: "High-performance sports car with a powerful engine, sleek design, and luxurious interior.",
                 cover: "Ferrari",
                 config: {
                     maxSteeringAngle: 30,
@@ -141,7 +141,7 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
             'Porsche',
             {
                 name: 'Porsche',
-                description: 'Porsche',
+                description: 'Execellent engineering, sleek design, and impressive speed with advanced technology and high-quality materials.',
                 cover: 'Porsche',
                 config: {
                     maxSteeringAngle: 30,
@@ -157,7 +157,7 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
             'SUV',
             {
                 name: 'SUV',
-                description: 'SUV',
+                description: 'Higher ground clearance with all-wheel drive.',
                 cover: 'SUV',
                 config: {
                     maxSteeringAngle: 30,
@@ -173,7 +173,7 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
             'Jeep',
             {
                 name: 'Jeep',
-                description: 'Jeep',
+                description: 'Excellent off-road capabilities and distinctive design.',
                 cover: 'Jeep',
                 config: {
                     maxSteeringAngle: 30,
