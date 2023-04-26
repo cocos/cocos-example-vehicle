@@ -8,8 +8,12 @@ export class game_time extends Component {
     private label: Label = null;
 
     public currentTime: number = 0;
-    start() {
 
+    get time() {
+        return this.currentTime;
+    }
+
+    start() {
     }
 
     update(deltaTime: number) {
