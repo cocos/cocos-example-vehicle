@@ -82,7 +82,7 @@ export const camera_preset = {
         orientation: new Quat(0, 1, 0, 0),
     },
     'inside': {
-        position: new Vec3(-0.2, 1.1, 0.5),
+        position: new Vec3(-0.2, 1.0, 0.6),
         orientation: new Quat(),
     },
 };

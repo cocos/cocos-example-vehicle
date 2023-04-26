@@ -8,5 +8,11 @@
     },
     "highQuality": true
   },
-  "custom_joint_texture_layouts": []
+  "custom_joint_texture_layouts": [],
+  "layer": [
+    {
+      "name": "User1",
+      "value": 1
+    }
+  ]
 }
