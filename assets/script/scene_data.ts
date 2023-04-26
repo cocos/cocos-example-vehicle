@@ -12,7 +12,7 @@ export const scene_registed: Map<string, SceneData> = new Map<string, SceneData>
             "Level1", 
             { 
                 title: "Level 1",
-                description: "scene description",
+                description: "This game track is a challenging journey filled with numerous traps and hazards. The track surface is bumpy and uneven, with loose gravel and branches flying up and causing your car to bounce and swerve.",
                 cover: "Level1",
             }
         ],
