@@ -660,10 +660,10 @@
       "__id__": 24
     },
     "asset": {
-      "__uuid__": "89ed34a2-21da-4ec5-9bf9-d7f3f1af86b0",
+      "__uuid__": "3ca03593-01dc-43ec-af90-66175eda0d03",
       "__expectedType__": "cc.Prefab"
     },
-    "fileId": "b0cNX+jchJW56QxY5RM5Wr",
+    "fileId": "4aXgVm+blP+aECjfW6+QDb",
     "instance": {
       "__id__": 26
     },
@@ -672,7 +672,7 @@
   },
   {
     "__type__": "cc.PrefabInstance",
-    "fileId": "aeP8evZ6pHuowSRVKd7Iym",
+    "fileId": "d24Rhd4O9OzKRS25kgIX01",
     "prefabRootNode": null,
     "mountedChildren": [],
     "mountedComponents": [],
@@ -700,12 +700,12 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "CarWithMesh"
+    "value": "Driver"
   },
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "b0cNX+jchJW56QxY5RM5Wr"
+      "4aXgVm+blP+aECjfW6+QDb"
     ]
   },
   {
@@ -734,9 +734,9 @@
     "value": {
       "__type__": "cc.Quat",
       "x": 0,
-      "y": 0.6399554822060034,
+      "y": 0,
       "z": 0,
-      "w": -0.7684119863683034
+      "w": 1
     }
   },
   {
@@ -750,7 +750,7 @@
     "value": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 280.423,
+      "y": 0,
       "z": 0
     }
   },

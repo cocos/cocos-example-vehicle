@@ -2,12 +2,12 @@
   "ver": "1.1.44",
   "importer": "prefab",
   "imported": true,
-  "uuid": "80f0e3d1-999f-41b1-aadd-2a86c77650c0",
+  "uuid": "c3853677-7e90-4834-8d46-a7874114d0e7",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Car"
+    "syncNodeName": "Jeep"
   }
 }

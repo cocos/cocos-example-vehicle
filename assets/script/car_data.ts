@@ -74,8 +74,8 @@ export class camera_vision {
 
 export const camera_preset = {
     'default': {
-        position: new Vec3(0, 2, 8),
-        orientation: new Quat(),
+        position: new Vec3(0, 2, 5),
+        orientation: new Quat(-0.117, 0, 0, 0.993),
     },
     'back': {
         position: new Vec3(0, 2, -8),
@@ -170,11 +170,11 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
             }
         ],
         [
-            'Truck',
+            'Jeep',
             {
-                name: 'Truck',
-                description: 'Truck',
-                cover: 'Truck',
+                name: 'Jeep',
+                description: 'Jeep',
+                cover: 'Jeep',
                 config: {
                     maxSteeringAngle: 30,
                     maxSpeed: 100,
@@ -182,13 +182,8 @@ export const car_registed: Map<string, car_info> = new Map<string, car_info>(
                     maxBrake: 100,
                     smoothBufferLength: 10,
                 },
-                prefab: 'Truck',
+                prefab: 'Jeep',
             }
         ]
     ]
 );
-
-export let car_selected = "car";
-export function select_car (car: string) {
-    car_selected = car;
-}

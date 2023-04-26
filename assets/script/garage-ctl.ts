@@ -1,7 +1,8 @@
 import { _decorator, Component, Node, Prefab, PageView, instantiate, assetManager, SpriteFrame, Label, Sprite } from 'cc';
 import { car_item } from './car-item';
 const { ccclass, property } = _decorator;
-import { car_registed, car_selected, select_car } from './car_data';
+import { car_registed } from './car_data';
+import { car_selected, select_car } from './car_setting';
 
 @ccclass('garage_ctl')
 export class garage_ctl extends Component {

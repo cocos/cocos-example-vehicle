@@ -2,12 +2,12 @@
   "ver": "1.1.44",
   "importer": "prefab",
   "imported": true,
-  "uuid": "945b6874-3707-4707-bb90-398f12eb081f",
+  "uuid": "48b0c756-dc04-4636-afcd-23de0d99d822",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Huracan"
+    "syncNodeName": "Info-panel"
   }
 }

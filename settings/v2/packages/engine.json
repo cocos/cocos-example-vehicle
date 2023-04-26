@@ -158,6 +158,7 @@
   },
   "macroConfig": {
     "CUSTOM_PIPELINE_NAME": "",
-    "ENABLE_BLOOM": true
+    "ENABLE_BLOOM": true,
+    "ENABLE_ANTIALIAS_FXAA": true
   }
 }
