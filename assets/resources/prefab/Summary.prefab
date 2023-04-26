@@ -7,7 +7,6 @@
     "data": {
       "__id__": 1
     },
-    "optimizationPolicy": 0,
     "persistent": false
   },
   {
@@ -1131,6 +1130,7 @@
       "__id__": 0
     },
     "fileId": "37CH4rzJpCyqnqVTVCk1Vy",
-    "instance": null
+    "instance": null,
+    "targetOverrides": null
   }
 ]

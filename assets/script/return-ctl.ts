@@ -24,5 +24,3 @@ export class return_ctl extends Component {
         director.loadScene(scene.name);
     }
 }
-
-
