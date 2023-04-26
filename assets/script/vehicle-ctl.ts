@@ -41,6 +41,7 @@ export class Vehicle extends Component {
     private _frontLeftHub: Node = null!;
     private _frontRightHub: Node = null!;
     private _mainCamera: Camera = null!;
+    private _innerCamera: Node = null!;
 
     private _key_mapping: key_mapping = key_mapping_rally;
     private _key_status: key_status = new key_status();
@@ -130,6 +131,7 @@ export class Vehicle extends Component {
             this._rearRightWheel = this._car.getChildByName('Wheel-011')!;
             this._frontLeftHub = this._car.getChildByName('hub-000')!;
             this._frontRightHub = this._car.getChildByName('hub-001')!;
+            this._innerCamera = this._car.getChildByName('innercamrea')!;
             this._mainCamera = this._car.getChildByName('vehicle-camera')!.getComponent(Camera)!;
             // monitor input events, wasd
             const com0 = this._frontLeftHub.getComponent(physics.ConfigurableConstraint);
@@ -168,7 +170,11 @@ export class Vehicle extends Component {
         if (!this._car) {
             return;
         }
-        const vision = this._currentVisionPreset;
+        let vision = this._currentVisionPreset;
+        if (this._key_status.camera_inside) {
+            vision.position = this._innerCamera.position;
+        }
+
         const position = this._car.getWorldPosition();
         const rotation = this._car.getWorldRotation();
         const scale = this._car.getWorldScale();

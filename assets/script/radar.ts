@@ -33,7 +33,12 @@ export class Radar extends Component {
         this.curr2 = this.currentAngle + this.angle / 2 - m * 2 * Math.PI;
 
         this.node.rotate(Quat.fromAxisAngle(new Quat(), Vec3.UNIT_Y, rotate));
-        if (this.missile == null) {
+        if (this.missile === null) {
+            this.node.scene.walk((node)=> {
+                if (node.name === 'missile') {
+                    this.missile = node;
+                }
+            });
             return;
         }
 
@@ -45,8 +50,12 @@ export class Radar extends Component {
 
         let dot = Vec2.dot(dirv2, Vec2.UNIT_X);
         const current = Math.acos(dot);
-        if (current >= this.curr1 && current <= this.curr2 && this.missile.getComponent(missile).launch) {
+        const launched = this.missile.getComponent(missile).launch;
+        if (current >= this.curr1 && current <= this.curr2 && launched) {
             this.pos = pos;
+        }
+        if (!launched) {
+            this.pos = new Vec2(1000, 1000);
         }
     }
 }

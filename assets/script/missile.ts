@@ -12,8 +12,8 @@ export class missile extends Component {
     @property(Camera)
     public missi2: Camera = null;
 
-    @property(Camera)
-    public main: Camera = null;
+    @property(Node)
+    public main: Node = null;
 
     @property({
         type: [Node]
@@ -43,7 +43,9 @@ export class missile extends Component {
 
         this.missil.node.active = false;
         this.missi2.node.active = false;
-        this.main.node.active = true;
+        if (this.main) {
+            this.main.active = true;
+        }
         this.launchIndex++;
         this.launchIndex = this.launchIndex % this.launchList.length;
 
@@ -58,6 +60,14 @@ export class missile extends Component {
         if (!this.launch) {
             return;
         }
+        this.node.scene.walk((node)=> {
+            if (node.name === 'vehicle-camera') {
+                this.main = node;
+            }
+            if (node.name === 'body') {
+                this.target = node;
+            }
+        });
 
         const pos = this.node.getWorldPosition();
         const rot = this.node.getWorldRotation();
@@ -82,15 +92,15 @@ export class missile extends Component {
         } else if (targetDir.length() < 15 && this.switchCamera) {
             this.missil.node.active = true;
             this.missi2.node.active = false;
-            this.main.node.active = false;
+            this.main.active = false;
         } else if (targetDir.length() < 20 && this.switchCamera) {
             this.missil.node.active = false;
             this.missi2.node.active = true;
-            this.main.node.active = false;
+            this.main.active = false;
         } else {
             this.missil.node.active = false;
             this.missi2.node.active = false;
-            this.main.node.active = true;
+            this.main.active = true;
         }
         
         if (targetDir.length() > 30) {
