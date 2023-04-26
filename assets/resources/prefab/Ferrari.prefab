@@ -55,22 +55,25 @@
       },
       {
         "__id__": 220
+      },
+      {
+        "__id__": 239
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 239
-      },
-      {
         "__id__": 241
       },
       {
         "__id__": 243
+      },
+      {
+        "__id__": 245
       }
     ],
     "_prefab": {
-      "__id__": 245
+      "__id__": 247
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -5441,6 +5444,61 @@
     ]
   },
   {
+    "__type__": "cc.Node",
+    "_name": "innercamrea",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [],
+    "_prefab": {
+      "__id__": 240
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0.743,
+      "z": -0.173
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "3eW2MPQmNJC4G58hbTlcgp",
+    "instance": null,
+    "targetOverrides": null,
+    "nestedPrefabInstanceRoots": null
+  },
+  {
     "__type__": "cc.RigidBody",
     "_name": "",
     "_objFlags": 0,
@@ -5449,7 +5507,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 240
+      "__id__": 242
     },
     "_group": 1,
     "_type": 1,
@@ -5485,7 +5543,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 242
+      "__id__": 244
     },
     "_enableCollision": true,
     "_connectedBody": {
@@ -5511,7 +5569,7 @@
     },
     "_enabled": false,
     "__prefab": {
-      "__id__": 244
+      "__id__": 246
     },
     "DefaultCarPrefab": null,
     "_id": ""
