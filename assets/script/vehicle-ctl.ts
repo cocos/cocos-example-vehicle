@@ -6,6 +6,7 @@ import {
     camera_preset,
     camera_vision,
     car_config,
+    driving_mode,
     key_mapping,
     key_mapping_normal,
     key_mapping_rally,
@@ -14,7 +15,8 @@ import {
 } from './car_data';
 import {
     car_selected,
-    key_mapping_selected
+    key_mapping_selected,
+    driving_mode_selected
 } from './car_setting';
 
 const { ccclass, property } = _decorator;
@@ -26,6 +28,8 @@ const car_preset: car_config = {
     maxBrake: 1000,
     smoothBufferLength: 10,
 };
+
+const quat_0 = new Quat(Quat.IDENTITY);
 
 @ccclass('Vehicle')
 export class Vehicle extends Component {
@@ -72,6 +76,8 @@ export class Vehicle extends Component {
 
     private _smoothedVelocity = new Vec3(0, 0, 0);
     private _prevPosition = new Vec3(0, 0, 0);
+    private _smoothedAngularVelocity = new Vec3(0, 0, 0);
+    private _prevAngularVelocity = new Vec3(0, 0, 0);
 
     start() {
         // init car
@@ -91,7 +97,11 @@ export class Vehicle extends Component {
         this._bufferIndex = (this._bufferIndex + 1) % this._bufferSize;
         this.updateVision();
         this.updateSteering();
-        this.updateVelocity();
+        if (driving_mode_selected == driving_mode.MANUAL) {
+            this.updateVelocity();
+        } else {
+            this.updateVelocityAuto();
+        }
 
         this.updateVelocityInfo(deltaTime);
     }
@@ -210,15 +220,40 @@ export class Vehicle extends Component {
         }
     }
 
+    updateVelocityAuto () {
+        const Status = this._key_status;
+        let drivingForce = this._carConfig.maxPower / Math.abs(this._smoothedAngularVelocity.y);
+        drivingForce = Math.min(drivingForce, this._carConfig.maxPower);
+        if (Status.accelerate && !Status.brake && !Status.handbrake) {
+            this._setDrivingSpeed(this._carConfig.maxSpeed);
+            this._setDrivingForce(drivingForce);
+        } else if (Status.brake && !Status.handbrake) {
+            this._setDrivingSpeed(-this._carConfig.maxSpeed);
+            this._setDrivingForce(drivingForce);
+        } else if (Status.handbrake) {
+            this._setDrivingSpeed(0);
+            this._setDrivingForce(this._breakForce);
+        } else {
+            this._setDrivingSpeed(0);
+            this._setDrivingForce(0);
+        }
+    }
+
     updateVelocityInfo (deltaTime: number) {
         if (!this._car) {
             return;
         }
-        const position = this._car.getWorldPosition();
-        const velocity = Vec3.subtract(new Vec3(), position, this._prevPosition);
-        Vec3.multiplyScalar(velocity, velocity, 1 / deltaTime);
-        this._prevPosition = position;
-        Vec3.lerp(this._smoothedVelocity, this._smoothedVelocity, velocity, 0.1);
+        const wheel = this._rearLeftWheel;
+        this._rearLeftWheel.getComponent(RigidBody)!.getAngularVelocity(this._prevAngularVelocity);
+
+        Quat.invert(quat_0, wheel.getWorldRotation());
+
+        // transform to local space 
+        Vec3.transformQuat(this._prevAngularVelocity, this._prevAngularVelocity, quat_0);
+
+        this._car.getComponent(RigidBody)!.getLinearVelocity(this._prevPosition);
+        Vec3.lerp(this._smoothedVelocity, this._smoothedVelocity, this._prevPosition, 0.1);
+        Vec3.lerp(this._smoothedAngularVelocity, this._smoothedAngularVelocity, this._prevAngularVelocity, 0.1);
     }
 
     reset () {
@@ -325,11 +360,11 @@ export class Vehicle extends Component {
                 Status.accelerate = true;
                 break;
             case Mapping.left:
-                this._steeringDelta = car_preset.maxSteeringAngle;
+                this._steeringDelta = -car_preset.maxSteeringAngle;
                 Status.left = true;
                 break;
             case Mapping.right:
-                this._steeringDelta = -car_preset.maxSteeringAngle;
+                this._steeringDelta = car_preset.maxSteeringAngle;
                 Status.right = true;
                 break;
             case Mapping.gearDown:
@@ -410,5 +445,16 @@ export class Vehicle extends Component {
                 break;
             default: break;
         }
+    }
+
+    onKeyDownAutomatic(e: EventKeyboard) {
+        // the car will automatically change gear
+        const Mapping = this._key_mapping;
+        const Status = this._key_status;
+        switch (e.keyCode) {
+        }
+    }
+
+    onKeyReleaseAutomatic(e: EventKeyboard) {
     }
 }

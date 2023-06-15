@@ -118,8 +118,11 @@
       "marionette": {
         "_value": true
       },
-      "custom-pipeline": {
+      "procedural-animation": {
         "_value": false
+      },
+      "custom-pipeline": {
+        "_value": true
       }
     },
     "flags": {},
@@ -129,6 +132,7 @@
       "animation",
       "audio",
       "base",
+      "custom-pipeline",
       "dragon-bones",
       "gfx-webgl",
       "gfx-webgl2",
@@ -157,7 +161,7 @@
     }
   },
   "macroConfig": {
-    "CUSTOM_PIPELINE_NAME": "",
+    "CUSTOM_PIPELINE_NAME": "FORWARD",
     "ENABLE_BLOOM": true,
     "ENABLE_ANTIALIAS_FXAA": true
   }

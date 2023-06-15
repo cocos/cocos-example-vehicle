@@ -23,6 +23,12 @@ export enum key_style {
 }
 Enum(key_style);
 
+export enum driving_mode {
+    MANUAL,
+    AUTO,
+}
+Enum(driving_mode);
+
 export const normal_key_mapping_texture = "NormalKeyMapping";
 export const key_mapping_normal = {
     accelerate: KeyCode.KEY_W,
