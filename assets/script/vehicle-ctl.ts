@@ -1,101 +1,25 @@
-import { _decorator, Component, Node, Quat, 
+import { _decorator, Component, Node, Quat, cclegacy,
     RigidBody, Vec3, input, Input, EventKeyboard, 
-    KeyCode, Camera, ConfigurableConstraint, physics, math, Enum,
+    KeyCode, Camera, ConfigurableConstraint, physics, math, Enum, Prefab, resources, AssetManager, assetManager, instantiate, error, director, TERRAIN_HEIGHT_BASE,
 } from 'cc';
+import { 
+    camera_preset,
+    camera_vision,
+    car_config,
+    driving_mode,
+    key_mapping,
+    key_mapping_normal,
+    key_mapping_rally,
+    key_status,
+    key_style
+} from './car_data';
+import {
+    car_selected,
+    key_mapping_selected,
+    driving_mode_selected
+} from './car_setting';
 
 const { ccclass, property } = _decorator;
-
-class key_mapping {
-    accelerate: KeyCode;
-    brake: KeyCode;
-    left: KeyCode;
-    right: KeyCode;
-    gearUp: KeyCode;
-    gearDown: KeyCode;
-    handbrake: KeyCode;
-    reset: KeyCode;
-    camera_inside: KeyCode;
-    camera_back: KeyCode;
-    camera_default: KeyCode;
-};
-
-export enum key_style {
-    NORMAL,
-    RALLY,
-}
-Enum(key_style);
-
-class key_status {
-    accelerate: boolean = false;
-    brake: boolean = false;
-    left: boolean = false;
-    right: boolean = false;
-    gearUp: boolean = false;
-    gearDown: boolean = false;
-    handbrake: boolean = false;
-    reset: boolean = false;
-    camera_inside: boolean = false;
-    camera_back: boolean = false;
-    camera_default: boolean = false;
-};
-
-const key_mapping_normal = {
-    accelerate: KeyCode.KEY_W,
-    brake: KeyCode.KEY_S,
-    left: KeyCode.KEY_A,
-    right: KeyCode.KEY_D,
-    gearUp: KeyCode.KEY_E,
-    gearDown: KeyCode.KEY_Q,
-    handbrake: KeyCode.SPACE,
-    reset: KeyCode.KEY_R,
-    camera_inside: KeyCode.KEY_C,
-    camera_back: KeyCode.KEY_B,
-    camera_default: KeyCode.KEY_V,
-};
-
-const key_mapping_rally = {
-    accelerate: KeyCode.KEY_A,
-    brake: KeyCode.KEY_Z,
-    left: KeyCode.COMMA,
-    right: KeyCode.PERIOD,
-    gearUp: KeyCode.KEY_S,
-    gearDown: KeyCode.KEY_X,
-    handbrake: KeyCode.SPACE,
-    reset: KeyCode.KEY_R,
-    camera_inside: KeyCode.KEY_C,
-    camera_back: KeyCode.KEY_B,
-    camera_default: KeyCode.KEY_V,
-};
-
-class camera_vision {
-    position: Vec3;
-    orientation: Quat;
-}
-
-const camera_preset = {
-    'default': {
-        position: new Vec3(0, 2, 8),
-        orientation: new Quat(),
-    },
-    'back': {
-        position: new Vec3(0, 2, -8),
-        orientation: new Quat(0, 1, 0, 0),
-    },
-    'inside': {
-        position: new Vec3(0, 1, 0),
-        orientation: new Quat(),
-    },
-};
-
-class car_config {
-    maxSteeringAngle: number;
-    maxSpeed: number;
-    maxPower: number;
-    maxBrake: number;
-    smoothBufferLength: number;
-    camera_blendingFactor: number;
-    steering_blendingFactor: number;
-};
 
 const car_preset: car_config = {
     maxSteeringAngle: 45,
@@ -103,27 +27,25 @@ const car_preset: car_config = {
     maxPower: 1000,
     maxBrake: 1000,
     smoothBufferLength: 10,
-    camera_blendingFactor: 0.2,
-    steering_blendingFactor: 0.2,
 };
+
+const quat_0 = new Quat(Quat.IDENTITY);
 
 @ccclass('Vehicle')
 export class Vehicle extends Component {
-    @property({ type: Node })
-    public car: Node = null!;
+    @property({ type: Prefab })
+    private DefaultCarPrefab: Prefab = null!;
+    private SelectedCarPrefab: Prefab = null!;
 
-    public frontLeftWheel: Node = null!;
-    public frontRightWheel: Node = null!;
-    public rearLeftWheel: Node = null!;
-    public rearRightWheel: Node = null!;
-    public frontLeftHub: Node = null!;
-    public frontRightHub: Node = null!;
-    public carBody: Node = null!;
-    public mainCamera: Camera = null!;
-    public framework: Node = null!;
-
-    @property({ type: key_style })
-    public KeyBinding: key_style = key_style.NORMAL;
+    private _car: Node | null = null;
+    private _frontLeftWheel: Node = null!;
+    private _frontRightWheel: Node = null!;
+    private _rearLeftWheel: Node = null!;
+    private _rearRightWheel: Node = null!;
+    private _frontLeftHub: Node = null!;
+    private _frontRightHub: Node = null!;
+    private _mainCamera: Camera = null!;
+    private _innerCamera: Node = null!;
 
     private _key_mapping: key_mapping = key_mapping_rally;
     private _key_status: key_status = new key_status();
@@ -154,12 +76,14 @@ export class Vehicle extends Component {
 
     private _smoothedVelocity = new Vec3(0, 0, 0);
     private _prevPosition = new Vec3(0, 0, 0);
+    private _smoothedAngularVelocity = new Vec3(0, 0, 0);
+    private _prevAngularVelocity = new Vec3(0, 0, 0);
 
     start() {
         // init car
         this.initCar();
         // init key mapping
-        if (this.KeyBinding === key_style.NORMAL) {
+        if (key_mapping_selected === key_style.NORMAL) {
             this._key_mapping = key_mapping_normal;
         } else {
             this._key_mapping = key_mapping_rally;
@@ -173,7 +97,11 @@ export class Vehicle extends Component {
         this._bufferIndex = (this._bufferIndex + 1) % this._bufferSize;
         this.updateVision();
         this.updateSteering();
-        this.updateVelocity();
+        if (driving_mode_selected == driving_mode.MANUAL) {
+            this.updateVelocity();
+        } else {
+            this.updateVelocityAuto();
+        }
 
         this.updateVelocityInfo(deltaTime);
     }
@@ -193,26 +121,50 @@ export class Vehicle extends Component {
         this._setGear(this._currentGear);
     }
 
-    initCar () {
-        this.carBody = this.car.getChildByName('body')!;
-        this.framework = this.car.getChildByName('framework')!;
-        this.frontLeftWheel = this.car.getChildByName('Wheel-000')!;
-        this.frontRightWheel = this.car.getChildByName('Wheel-001')!;
-        this.rearLeftWheel = this.car.getChildByName('Wheel-010')!;
-        this.rearRightWheel = this.car.getChildByName('Wheel-011')!;
-        this.frontLeftHub = this.car.getChildByName('hub-000')!;
-        this.frontRightHub = this.car.getChildByName('hub-001')!;
-        this.mainCamera = this.node.getChildByName('vehicle-camera')!.getComponent(Camera)!;
+    initCar (pos: Vec3 = Vec3.ZERO, rot: Quat = Quat.IDENTITY) {
+        const prefabName = car_selected;
+        const setup = (prefab: Prefab) => {
+            if (!prefab) {
+                console.log(`error loading car prefab`);
+            }
+            if (this._car) {
+                this._car.removeFromParent();
+            }
+            this._car = instantiate(prefab);
+            this._car.setParent(this.node);
 
-        // monitor input events, wasd
-        const com0 = this.frontLeftHub.getComponent(physics.ConfigurableConstraint);
-        if (com0) {
-            com0.angularDriverSettings.twistDrive = 1;
+            this._car.setWorldPosition(pos);
+            this._car.setWorldRotation(rot);
+            this._frontLeftWheel = this._car.getChildByName('Wheel-000')!;
+            this._frontRightWheel = this._car.getChildByName('Wheel-001')!;
+            this._rearLeftWheel = this._car.getChildByName('Wheel-010')!;
+            this._rearRightWheel = this._car.getChildByName('Wheel-011')!;
+            this._frontLeftHub = this._car.getChildByName('hub-000')!;
+            this._frontRightHub = this._car.getChildByName('hub-001')!;
+            this._innerCamera = this._car.getChildByName('innercamrea')!;
+            this._mainCamera = this._car.getChildByName('vehicle-camera')!.getComponent(Camera)!;
+            // monitor input events, wasd
+            const com0 = this._frontLeftHub.getComponent(physics.ConfigurableConstraint);
+            if (com0) {
+                com0.angularDriverSettings.twistDrive = 1;
+            }
+            const com1 = this._frontRightHub.getComponent(physics.ConfigurableConstraint);
+            if (com1) {
+                com1.angularDriverSettings.twistDrive = 1;
+            }
+            console.log(`car loaded: ${prefab.nativeUrl}`);
         }
-        const com1 = this.frontRightHub.getComponent(physics.ConfigurableConstraint);
-        if (com1) {
-            com1.angularDriverSettings.twistDrive = 1;
-        }
+
+        // load prefab from bundle
+        assetManager.resources!.load(`prefab/${prefabName}`, Prefab, (err, prefab) => {
+            if (err) {
+                console.log(`err: ${err}`);
+                setup(this.DefaultCarPrefab);
+                return;
+            }
+            this.SelectedCarPrefab = prefab;
+            setup(this.SelectedCarPrefab);
+        });
     }
 
     updateSteering() {
@@ -225,10 +177,17 @@ export class Vehicle extends Component {
     }
 
     updateVision () {
-        const vision = this._currentVisionPreset;
-        const position = this.car.getWorldPosition();
-        const rotation = this.car.getWorldRotation();
-        const scale = this.car.getWorldScale();
+        if (!this._car) {
+            return;
+        }
+        let vision = this._currentVisionPreset;
+        if (this._key_status.camera_inside) {
+            vision.position = this._innerCamera.position;
+        }
+
+        const position = this._car.getWorldPosition();
+        const rotation = this._car.getWorldRotation();
+        const scale = this._car.getWorldScale();
 
         Vec3.lerp(this._smoothedPosition, this._smoothedPosition, position, 0.3);
         Quat.slerp(this._smoothedOrientation, this._smoothedOrientation, rotation, 0.3);
@@ -240,8 +199,8 @@ export class Vehicle extends Component {
         Vec3.multiply(targetPosition, targetPosition, scale);
         Vec3.add(targetPosition, targetPosition, position);
         Quat.multiply(targetRotation, this._smoothedOrientation, vision.orientation);
-        this.mainCamera.node.setWorldPosition(targetPosition);
-        this.mainCamera.node.setWorldRotation(targetRotation);
+        this._mainCamera.node.setWorldPosition(targetPosition);
+        this._mainCamera.node.setWorldRotation(targetRotation);
     }
 
     updateVelocity () {
@@ -261,38 +220,49 @@ export class Vehicle extends Component {
         }
     }
 
+    updateVelocityAuto () {
+        const Status = this._key_status;
+        let drivingForce = this._carConfig.maxPower / Math.abs(this._smoothedAngularVelocity.y);
+        drivingForce = Math.min(drivingForce, this._carConfig.maxPower);
+        if (Status.accelerate && !Status.brake && !Status.handbrake) {
+            this._setDrivingSpeed(this._carConfig.maxSpeed);
+            this._setDrivingForce(drivingForce);
+        } else if (Status.brake && !Status.handbrake) {
+            this._setDrivingSpeed(-this._carConfig.maxSpeed);
+            this._setDrivingForce(drivingForce);
+        } else if (Status.handbrake) {
+            this._setDrivingSpeed(0);
+            this._setDrivingForce(this._breakForce);
+        } else {
+            this._setDrivingSpeed(0);
+            this._setDrivingForce(0);
+        }
+    }
+
     updateVelocityInfo (deltaTime: number) {
-        const position = this.car.getWorldPosition();
-        const velocity = Vec3.subtract(new Vec3(), position, this._prevPosition);
-        Vec3.multiplyScalar(velocity, velocity, 1 / deltaTime);
-        this._prevPosition = position;
-        Vec3.lerp(this._smoothedVelocity, this._smoothedVelocity, velocity, 0.1);
+        if (!this._car) {
+            return;
+        }
+        const wheel = this._rearLeftWheel;
+        this._rearLeftWheel.getComponent(RigidBody)!.getAngularVelocity(this._prevAngularVelocity);
+
+        Quat.invert(quat_0, wheel.getWorldRotation());
+
+        // transform to local space 
+        Vec3.transformQuat(this._prevAngularVelocity, this._prevAngularVelocity, quat_0);
+
+        this._car.getComponent(RigidBody)!.getLinearVelocity(this._prevPosition);
+        Vec3.lerp(this._smoothedVelocity, this._smoothedVelocity, this._prevPosition, 0.1);
+        Vec3.lerp(this._smoothedAngularVelocity, this._smoothedAngularVelocity, this._prevAngularVelocity, 0.1);
     }
 
     reset () {
-        this.resetTo(new Vec3(0, 0, 0), new Quat());
+        this.resetTo();
     }
 
-    resetTo(position: Vec3, orientation: Quat) {
-        // better re instantiate the car preset.
+    resetTo(position: Vec3 = Vec3.ZERO, orientation: Quat = Quat.IDENTITY) {
         this._setGear(0);
-        this._resetRigidBody(this.car.getChildByName('framework')!);
-        this._resetRigidBody(this.car.getChildByName('body')!);
-        this._resetRigidBody(this.car.getChildByName('Wheel-000')!);
-        this._resetRigidBody(this.car.getChildByName('Wheel-001')!);
-        this._resetRigidBody(this.car.getChildByName('Wheel-010')!);
-        this._resetRigidBody(this.car.getChildByName('Wheel-011')!);
-        this._resetRigidBody(this.car.getChildByName('hub-000')!);
-        this._resetRigidBody(this.car.getChildByName('hub-001')!);
-        this._resetRigidBody(this.car.getChildByName('hub-010')!);
-        this._resetRigidBody(this.car.getChildByName('hub-011')!);
-        this.car.setWorldPosition(position);
-        this.car.setWorldRotation(orientation);
-        const framework = this.car.getChildByName('framework')!;
-        framework.setWorldPosition(position);
-        framework.setWorldRotation(orientation);
-        this.carBody.setWorldPosition(position);
-        this.carBody.setWorldRotation(orientation);
+        this.initCar(position, orientation);
     }
 
     _resetRigidBody(body: Node) {
@@ -305,42 +275,48 @@ export class Vehicle extends Component {
     }
 
     _setDrivingForce(strength: number) {
-        let com = this.frontLeftWheel.getComponent(ConfigurableConstraint);
+        if (!this._car) {
+            return;
+        }
+        let com = this._frontLeftWheel.getComponent(ConfigurableConstraint);
         if (com) {
             com.angularDriverSettings.strength = strength;
         }
-        com = this.frontRightWheel.getComponent(ConfigurableConstraint);
+        com = this._frontRightWheel.getComponent(ConfigurableConstraint);
         if (com) {
             com.angularDriverSettings.strength = strength;
         }
-        com = this.rearLeftWheel.getComponent(ConfigurableConstraint);
+        com = this._rearLeftWheel.getComponent(ConfigurableConstraint);
         if (com) {
             com.angularDriverSettings.strength = strength;
         }
-        com = this.rearRightWheel.getComponent(ConfigurableConstraint);
+        com = this._rearRightWheel.getComponent(ConfigurableConstraint);
         if (com) {
             com.angularDriverSettings.strength = strength;
         }
     }
 
     _setDrivingSpeed(speed: number) {
+        if (!this._car) {
+            return;
+        }
         speed = - speed * 10; 
-        let com = this.frontLeftWheel.getComponent(ConfigurableConstraint);
+        let com = this._frontLeftWheel.getComponent(ConfigurableConstraint);
         if (com) {
             com.angularDriverSettings.targetVelocity.x = speed;
             com.angularDriverSettings.targetVelocity = com.angularDriverSettings.targetVelocity;
         }
-        com = this.frontRightWheel.getComponent(ConfigurableConstraint);
+        com = this._frontRightWheel.getComponent(ConfigurableConstraint);
         if (com) {
             com.angularDriverSettings.targetVelocity.x = speed;
             com.angularDriverSettings.targetVelocity = com.angularDriverSettings.targetVelocity;
         }
-        com = this.rearLeftWheel.getComponent(ConfigurableConstraint);
+        com = this._rearLeftWheel.getComponent(ConfigurableConstraint);
         if (com) {
             com.angularDriverSettings.targetVelocity.x = speed;
             com.angularDriverSettings.targetVelocity = com.angularDriverSettings.targetVelocity;
         }
-        com = this.rearRightWheel.getComponent(ConfigurableConstraint);
+        com = this._rearRightWheel.getComponent(ConfigurableConstraint);
         if (com) {
             com.angularDriverSettings.targetVelocity.x = speed;
             com.angularDriverSettings.targetVelocity = com.angularDriverSettings.targetVelocity;
@@ -355,20 +331,19 @@ export class Vehicle extends Component {
     }
 
     _setSteeringAngle(angle: number) {
-        const com0 = this.frontLeftHub.getComponent(physics.ConfigurableConstraint);
+        if (!this._car) {
+            return;
+        }
+        const com0 = this._frontLeftHub.getComponent(physics.ConfigurableConstraint);
         if (com0) {
             com0.angularDriverSettings.targetOrientation.x = angle;
             com0.angularDriverSettings.targetOrientation = com0.angularDriverSettings.targetOrientation;
         }
-        const com1 = this.frontRightHub.getComponent(physics.ConfigurableConstraint);
+        const com1 = this._frontRightHub.getComponent(physics.ConfigurableConstraint);
         if (com1) {
             com1.angularDriverSettings.targetOrientation.x = angle;
             com1.angularDriverSettings.targetOrientation = com1.angularDriverSettings.targetOrientation;
         }
-    }
-
-    setBrakingForce(force: number) {
-        // console.log('setBrakingForce', force);
     }
 
     getSpeedKmHour() {
@@ -385,11 +360,11 @@ export class Vehicle extends Component {
                 Status.accelerate = true;
                 break;
             case Mapping.left:
-                this._steeringDelta = car_preset.maxSteeringAngle;
+                this._steeringDelta = -car_preset.maxSteeringAngle;
                 Status.left = true;
                 break;
             case Mapping.right:
-                this._steeringDelta = -car_preset.maxSteeringAngle;
+                this._steeringDelta = car_preset.maxSteeringAngle;
                 Status.right = true;
                 break;
             case Mapping.gearDown:
@@ -470,5 +445,16 @@ export class Vehicle extends Component {
                 break;
             default: break;
         }
+    }
+
+    onKeyDownAutomatic(e: EventKeyboard) {
+        // the car will automatically change gear
+        const Mapping = this._key_mapping;
+        const Status = this._key_status;
+        switch (e.keyCode) {
+        }
+    }
+
+    onKeyReleaseAutomatic(e: EventKeyboard) {
     }
 }

@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.4",
+  "ver": "2.3.8",
   "importer": "fbx",
   "imported": true,
   "uuid": "71df7a01-a3b9-4e2f-80d8-f2365713f53f",
@@ -12,9 +12,10 @@
       "id": "8bbb8",
       "name": "wagon_AwheelRR.mesh",
       "userData": {
-        "gltfIndex": 0
+        "gltfIndex": 0,
+        "triangleCount": 158
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -29,9 +30,10 @@
       "id": "b59c4",
       "name": "wagon_AwheelRL.mesh",
       "userData": {
-        "gltfIndex": 1
+        "gltfIndex": 1,
+        "triangleCount": 158
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -46,9 +48,10 @@
       "id": "3d77d",
       "name": "wagon_A_Body_Material0.mesh",
       "userData": {
-        "gltfIndex": 2
+        "gltfIndex": 2,
+        "triangleCount": 798
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -63,9 +66,10 @@
       "id": "665ee",
       "name": "wagon_A_DoorL_Material0.mesh",
       "userData": {
-        "gltfIndex": 3
+        "gltfIndex": 3,
+        "triangleCount": 45
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -80,9 +84,10 @@
       "id": "49ed0",
       "name": "wagon_A_DoorL2_Material0.mesh",
       "userData": {
-        "gltfIndex": 4
+        "gltfIndex": 4,
+        "triangleCount": 35
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -97,9 +102,10 @@
       "id": "79ccd",
       "name": "wagon_A_DoorR2_Material0.mesh",
       "userData": {
-        "gltfIndex": 5
+        "gltfIndex": 5,
+        "triangleCount": 35
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -114,9 +120,10 @@
       "id": "475b9",
       "name": "wagon_A_DoorR_Material0.mesh",
       "userData": {
-        "gltfIndex": 6
+        "gltfIndex": 6,
+        "triangleCount": 45
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -131,9 +138,10 @@
       "id": "20cb7",
       "name": "wagon_AwheelFL.mesh",
       "userData": {
-        "gltfIndex": 7
+        "gltfIndex": 7,
+        "triangleCount": 158
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -148,9 +156,10 @@
       "id": "76c35",
       "name": "wagon_AwheelFR.mesh",
       "userData": {
-        "gltfIndex": 8
+        "gltfIndex": 8,
+        "triangleCount": 158
       },
-      "ver": "1.1.0",
+      "ver": "1.1.1",
       "imported": true,
       "files": [
         ".bin",
@@ -199,7 +208,7 @@
       "userData": {
         "gltfIndex": 0
       },
-      "ver": "1.0.12",
+      "ver": "1.0.13",
       "imported": true,
       "files": [
         ".json"
@@ -210,7 +219,8 @@
   "userData": {
     "imageMetas": [],
     "fbx": {
-      "smartMaterialEnabled": true
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
     },
     "redirect": "71df7a01-a3b9-4e2f-80d8-f2365713f53f@4cc47",
     "assetFinder": {
@@ -234,6 +244,25 @@
       "scenes": [
         "71df7a01-a3b9-4e2f-80d8-f2365713f53f@4cc47"
       ]
-    }
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
   }
 }

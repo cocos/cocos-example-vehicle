@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "8fda77bf-c721-43df-8909-bb6e21d6ec77",
+  "files": [],
+  "subMetas": {
+    "2f02e": {
+      "importer": "gltf-mesh",
+      "uuid": "8fda77bf-c721-43df-8909-bb6e21d6ec77@2f02e",
+      "displayName": "",
+      "id": "2f02e",
+      "name": "Hospital.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 690
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "8fda77bf-c721-43df-8909-bb6e21d6ec77@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "245bc": {
+      "importer": "gltf-scene",
+      "uuid": "8fda77bf-c721-43df-8909-bb6e21d6ec77@245bc",
+      "displayName": "",
+      "id": "245bc",
+      "name": "Hospital.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "8fda77bf-c721-43df-8909-bb6e21d6ec77@245bc",
+    "assetFinder": {
+      "meshes": [
+        "8fda77bf-c721-43df-8909-bb6e21d6ec77@2f02e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "8fda77bf-c721-43df-8909-bb6e21d6ec77@7a3ca"
+      ],
+      "scenes": [
+        "8fda77bf-c721-43df-8909-bb6e21d6ec77@245bc"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

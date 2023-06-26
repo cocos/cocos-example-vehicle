@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "cd1c3272-a519-4920-b044-772827e32a70",
+  "files": [],
+  "subMetas": {
+    "e22fe": {
+      "importer": "gltf-mesh",
+      "uuid": "cd1c3272-a519-4920-b044-772827e32a70@e22fe",
+      "displayName": "",
+      "id": "e22fe",
+      "name": "pPlane1.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 6
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ee760": {
+      "importer": "gltf-material",
+      "uuid": "cd1c3272-a519-4920-b044-772827e32a70@ee760",
+      "displayName": "",
+      "id": "ee760",
+      "name": "lambert12.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3ebe2": {
+      "importer": "gltf-scene",
+      "uuid": "cd1c3272-a519-4920-b044-772827e32a70@3ebe2",
+      "displayName": "",
+      "id": "3ebe2",
+      "name": "water.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "cd1c3272-a519-4920-b044-772827e32a70@3ebe2",
+    "assetFinder": {
+      "meshes": [
+        "cd1c3272-a519-4920-b044-772827e32a70@e22fe"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "cd1c3272-a519-4920-b044-772827e32a70@ee760"
+      ],
+      "scenes": [
+        "cd1c3272-a519-4920-b044-772827e32a70@3ebe2"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

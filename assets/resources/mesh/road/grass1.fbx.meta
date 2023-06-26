@@ -1,0 +1,149 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "3b73c9b7-3310-4ca6-92bb-690310393ae3",
+  "files": [],
+  "subMetas": {
+    "97371": {
+      "importer": "gltf-scene",
+      "uuid": "3b73c9b7-3310-4ca6-92bb-690310393ae3@97371",
+      "displayName": "",
+      "id": "97371",
+      "name": "grass1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1b1d2": {
+      "importer": "gltf-mesh",
+      "uuid": "3b73c9b7-3310-4ca6-92bb-690310393ae3@1b1d2",
+      "displayName": "",
+      "id": "1b1d2",
+      "name": "GrassPlane_02.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 2
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6b6c3": {
+      "importer": "gltf-embeded-image",
+      "uuid": "3b73c9b7-3310-4ca6-92bb-690310393ae3@6b6c3",
+      "displayName": "",
+      "id": "6b6c3",
+      "name": "Texture_01_1.image",
+      "userData": {
+        "gltfIndex": 0,
+        "fixAlphaTransparencyArtifacts": true,
+        "hasAlpha": true,
+        "type": "texture"
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "4c8c1": {
+      "importer": "texture",
+      "uuid": "3b73c9b7-3310-4ca6-92bb-690310393ae3@4c8c1",
+      "displayName": "",
+      "id": "4c8c1",
+      "name": "Texture_01_1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3b73c9b7-3310-4ca6-92bb-690310393ae3@6b6c3"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "3b73c9b7-3310-4ca6-92bb-690310393ae3@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "Texture_01_1",
+        "uri": "3b73c9b7-3310-4ca6-92bb-690310393ae3@6b6c3"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "3b73c9b7-3310-4ca6-92bb-690310393ae3@97371",
+    "assetFinder": {
+      "meshes": [
+        "3b73c9b7-3310-4ca6-92bb-690310393ae3@1b1d2"
+      ],
+      "skeletons": [],
+      "textures": [
+        "3b73c9b7-3310-4ca6-92bb-690310393ae3@4c8c1"
+      ],
+      "materials": [
+        "3b73c9b7-3310-4ca6-92bb-690310393ae3@7a3ca"
+      ],
+      "scenes": [
+        "3b73c9b7-3310-4ca6-92bb-690310393ae3@97371"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

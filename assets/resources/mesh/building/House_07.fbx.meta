@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "8b8e7b9a-fba9-4ca4-8a91-fe546aa0aa42",
+  "files": [],
+  "subMetas": {
+    "211a3": {
+      "importer": "gltf-mesh",
+      "uuid": "8b8e7b9a-fba9-4ca4-8a91-fe546aa0aa42@211a3",
+      "displayName": "",
+      "id": "211a3",
+      "name": "House_07.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 4872
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7a3ca": {
+      "importer": "gltf-material",
+      "uuid": "8b8e7b9a-fba9-4ca4-8a91-fe546aa0aa42@7a3ca",
+      "displayName": "",
+      "id": "7a3ca",
+      "name": "lambert2.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5f97e": {
+      "importer": "gltf-scene",
+      "uuid": "8b8e7b9a-fba9-4ca4-8a91-fe546aa0aa42@5f97e",
+      "displayName": "",
+      "id": "5f97e",
+      "name": "House_07.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "8b8e7b9a-fba9-4ca4-8a91-fe546aa0aa42@5f97e",
+    "assetFinder": {
+      "meshes": [
+        "8b8e7b9a-fba9-4ca4-8a91-fe546aa0aa42@211a3"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "8b8e7b9a-fba9-4ca4-8a91-fe546aa0aa42@7a3ca"
+      ],
+      "scenes": [
+        "8b8e7b9a-fba9-4ca4-8a91-fe546aa0aa42@5f97e"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "243249bf-5b7f-451c-b952-01cdd9539d40",
+  "files": [],
+  "subMetas": {
+    "77560": {
+      "importer": "gltf-scene",
+      "uuid": "243249bf-5b7f-451c-b952-01cdd9539d40@77560",
+      "displayName": "",
+      "id": "77560",
+      "name": "mine.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "99380": {
+      "importer": "gltf-material",
+      "uuid": "243249bf-5b7f-451c-b952-01cdd9539d40@99380",
+      "displayName": "",
+      "id": "99380",
+      "name": "Material.001.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c0e25": {
+      "importer": "gltf-mesh",
+      "uuid": "243249bf-5b7f-451c-b952-01cdd9539d40@c0e25",
+      "displayName": "",
+      "id": "c0e25",
+      "name": "Circle_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 316
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1043e": {
+      "importer": "gltf-material",
+      "uuid": "243249bf-5b7f-451c-b952-01cdd9539d40@1043e",
+      "displayName": "",
+      "id": "1043e",
+      "name": "Material.002.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "243249bf-5b7f-451c-b952-01cdd9539d40@77560",
+    "assetFinder": {
+      "meshes": [
+        "243249bf-5b7f-451c-b952-01cdd9539d40@c0e25"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "243249bf-5b7f-451c-b952-01cdd9539d40@99380",
+        "243249bf-5b7f-451c-b952-01cdd9539d40@1043e"
+      ],
+      "scenes": [
+        "243249bf-5b7f-451c-b952-01cdd9539d40@77560"
+      ]
+    },
+    "materials": {
+      "243249bf-5b7f-451c-b952-01cdd9539d40@1043e": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "DCC_APP_NAME": 2,
+            "HAS_EXPORTED_METALLIC": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 37,
+              "g": 32,
+              "b": 32,
+              "a": 255
+            },
+            "emissive": {
+              "__type__": "cc.Color",
+              "r": 255,
+              "g": 0,
+              "b": 0,
+              "a": 255
+            },
+            "shininessExponent": 25,
+            "specularFactor": 0.25,
+            "transparencyFactor": 0
+          },
+          {},
+          {}
+        ]
+      }
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

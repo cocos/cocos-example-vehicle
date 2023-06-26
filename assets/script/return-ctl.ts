@@ -20,7 +20,7 @@ export class return_ctl extends Component {
 
     onReplayButton() {
         console.log(`Replay`);
+        const scene = director.getScene();
+        director.loadScene(scene.name);
     }
 }
-
-

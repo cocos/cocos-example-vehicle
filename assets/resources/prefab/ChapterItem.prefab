@@ -169,7 +169,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "70fd691c-5e97-4298-8707-3788670a0fb2@f9941",
+      "__uuid__": "9c0746b4-6c62-4c91-8d77-00791488deee@07ce6",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -426,13 +426,13 @@
     "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
-    "_lineHeight": 40,
+    "_lineHeight": 25,
     "_overflow": 1,
     "_enableWrapText": true,
     "_font": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_isItalic": false,
+    "_isItalic": true,
     "_isBold": false,
     "_isUnderline": false,
     "_underlineHeight": 2,

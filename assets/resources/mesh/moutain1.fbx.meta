@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "f3e8bbae-d981-4d4a-85aa-b86adfe20071",
+  "files": [],
+  "subMetas": {
+    "16a0c": {
+      "importer": "gltf-mesh",
+      "uuid": "f3e8bbae-d981-4d4a-85aa-b86adfe20071@16a0c",
+      "displayName": "",
+      "id": "16a0c",
+      "name": "transform3.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 10000
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8d883": {
+      "importer": "gltf-material",
+      "uuid": "f3e8bbae-d981-4d4a-85aa-b86adfe20071@8d883",
+      "displayName": "",
+      "id": "8d883",
+      "name": "lambert1.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c2db0": {
+      "importer": "gltf-scene",
+      "uuid": "f3e8bbae-d981-4d4a-85aa-b86adfe20071@c2db0",
+      "displayName": "",
+      "id": "c2db0",
+      "name": "moutain1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "f3e8bbae-d981-4d4a-85aa-b86adfe20071@c2db0",
+    "assetFinder": {
+      "meshes": [
+        "f3e8bbae-d981-4d4a-85aa-b86adfe20071@16a0c"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "f3e8bbae-d981-4d4a-85aa-b86adfe20071@8d883"
+      ],
+      "scenes": [
+        "f3e8bbae-d981-4d4a-85aa-b86adfe20071@c2db0"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

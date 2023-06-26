@@ -1,0 +1,149 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e",
+  "files": [],
+  "subMetas": {
+    "11684": {
+      "importer": "gltf-scene",
+      "uuid": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@11684",
+      "displayName": "",
+      "id": "11684",
+      "name": "car_F_body.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "27e5b": {
+      "importer": "gltf-mesh",
+      "uuid": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@27e5b",
+      "displayName": "",
+      "id": "27e5b",
+      "name": "American1.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 1282
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "94cdf": {
+      "importer": "gltf-embeded-image",
+      "uuid": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@94cdf",
+      "displayName": "",
+      "id": "94cdf",
+      "name": "Texture_01_12.image",
+      "userData": {
+        "gltfIndex": 0,
+        "fixAlphaTransparencyArtifacts": true,
+        "hasAlpha": true,
+        "type": "texture"
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "35a06": {
+      "importer": "texture",
+      "uuid": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@35a06",
+      "displayName": "",
+      "id": "35a06",
+      "name": "Texture_01_12.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@94cdf"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d1586": {
+      "importer": "gltf-material",
+      "uuid": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@d1586",
+      "displayName": "",
+      "id": "d1586",
+      "name": "lambert13.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "Texture_01_12",
+        "uri": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@94cdf"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@11684",
+    "assetFinder": {
+      "meshes": [
+        "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@27e5b"
+      ],
+      "skeletons": [],
+      "textures": [
+        "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@35a06"
+      ],
+      "materials": [
+        "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@d1586"
+      ],
+      "scenes": [
+        "20696ad8-c5e9-4ff2-ad96-6661e7dcd58e@11684"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

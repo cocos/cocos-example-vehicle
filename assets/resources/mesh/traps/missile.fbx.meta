@@ -1,0 +1,269 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "0ecaf9a6-d30c-4d03-b9b4-a7675324a497",
+  "files": [],
+  "subMetas": {
+    "99380": {
+      "importer": "gltf-material",
+      "uuid": "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@99380",
+      "displayName": "",
+      "id": "99380",
+      "name": "Material.001.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "32f0f": {
+      "importer": "gltf-mesh",
+      "uuid": "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@32f0f",
+      "displayName": "",
+      "id": "32f0f",
+      "name": "Missile_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 684
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1043e": {
+      "importer": "gltf-material",
+      "uuid": "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@1043e",
+      "displayName": "",
+      "id": "1043e",
+      "name": "Material.002.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a9549": {
+      "importer": "gltf-material",
+      "uuid": "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@a9549",
+      "displayName": "",
+      "id": "a9549",
+      "name": "Material.003.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d1017": {
+      "importer": "gltf-scene",
+      "uuid": "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@d1017",
+      "displayName": "",
+      "id": "d1017",
+      "name": "missile.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@d1017",
+    "assetFinder": {
+      "meshes": [
+        "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@32f0f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@99380",
+        "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@1043e",
+        "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@a9549"
+      ],
+      "scenes": [
+        "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@d1017"
+      ]
+    },
+    "materials": {
+      "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@a9549": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "DCC_APP_NAME": 2,
+            "HAS_EXPORTED_METALLIC": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 55,
+              "g": 55,
+              "b": 55,
+              "a": 60
+            },
+            "shininessExponent": 25,
+            "specularFactor": 0.25,
+            "transparencyFactor": 0
+          },
+          {},
+          {}
+        ]
+      },
+      "0ecaf9a6-d30c-4d03-b9b4-a7675324a497@99380": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 1,
+        "_defines": [
+          {
+            "DCC_APP_NAME": 2,
+            "HAS_EXPORTED_METALLIC": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "blendColor": {},
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 55,
+              "g": 55,
+              "b": 55,
+              "a": 46
+            },
+            "shininessExponent": 25,
+            "specularFactor": 0.25,
+            "transparencyFactor": 0
+          },
+          {},
+          {}
+        ]
+      }
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c51b3155-12ea-4f91-84c1-338cdfc54a6c",
+  "files": [],
+  "subMetas": {
+    "32216": {
+      "importer": "gltf-embeded-image",
+      "uuid": "c51b3155-12ea-4f91-84c1-338cdfc54a6c@32216",
+      "displayName": "",
+      "id": "32216",
+      "name": "Texture_01_9.image",
+      "userData": {
+        "gltfIndex": 0,
+        "fixAlphaTransparencyArtifacts": true,
+        "hasAlpha": true,
+        "type": "texture"
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "bd747": {
+      "importer": "gltf-mesh",
+      "uuid": "c51b3155-12ea-4f91-84c1-338cdfc54a6c@bd747",
+      "displayName": "",
+      "id": "bd747",
+      "name": "polySurface15.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 164
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a5d95": {
+      "importer": "texture",
+      "uuid": "c51b3155-12ea-4f91-84c1-338cdfc54a6c@a5d95",
+      "displayName": "",
+      "id": "a5d95",
+      "name": "Texture_01_9.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "c51b3155-12ea-4f91-84c1-338cdfc54a6c@32216"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1d8fe": {
+      "importer": "gltf-material",
+      "uuid": "c51b3155-12ea-4f91-84c1-338cdfc54a6c@1d8fe",
+      "displayName": "",
+      "id": "1d8fe",
+      "name": "lambert10.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f1ccd": {
+      "importer": "gltf-scene",
+      "uuid": "c51b3155-12ea-4f91-84c1-338cdfc54a6c@f1ccd",
+      "displayName": "",
+      "id": "f1ccd",
+      "name": "car_Wheel.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "Texture_01_9",
+        "uri": "c51b3155-12ea-4f91-84c1-338cdfc54a6c@32216"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "c51b3155-12ea-4f91-84c1-338cdfc54a6c@f1ccd",
+    "assetFinder": {
+      "meshes": [
+        "c51b3155-12ea-4f91-84c1-338cdfc54a6c@bd747"
+      ],
+      "skeletons": [],
+      "textures": [
+        "c51b3155-12ea-4f91-84c1-338cdfc54a6c@a5d95"
+      ],
+      "materials": [
+        "c51b3155-12ea-4f91-84c1-338cdfc54a6c@1d8fe"
+      ],
+      "scenes": [
+        "c51b3155-12ea-4f91-84c1-338cdfc54a6c@f1ccd"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}

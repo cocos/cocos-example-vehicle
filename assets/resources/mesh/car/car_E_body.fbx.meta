@@ -1,0 +1,149 @@
+{
+  "ver": "2.3.8",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c9dae5f6-59c7-495c-8207-32c5af6e8b54",
+  "files": [],
+  "subMetas": {
+    "dec63": {
+      "importer": "gltf-mesh",
+      "uuid": "c9dae5f6-59c7-495c-8207-32c5af6e8b54@dec63",
+      "displayName": "",
+      "id": "dec63",
+      "name": "Sports Car1.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 2441
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3a228": {
+      "importer": "gltf-embeded-image",
+      "uuid": "c9dae5f6-59c7-495c-8207-32c5af6e8b54@3a228",
+      "displayName": "",
+      "id": "3a228",
+      "name": "Texture_01_11.image",
+      "userData": {
+        "gltfIndex": 0,
+        "fixAlphaTransparencyArtifacts": true,
+        "hasAlpha": true,
+        "type": "texture"
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "4b252": {
+      "importer": "texture",
+      "uuid": "c9dae5f6-59c7-495c-8207-32c5af6e8b54@4b252",
+      "displayName": "",
+      "id": "4b252",
+      "name": "Texture_01_11.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "c9dae5f6-59c7-495c-8207-32c5af6e8b54@3a228"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ee760": {
+      "importer": "gltf-material",
+      "uuid": "c9dae5f6-59c7-495c-8207-32c5af6e8b54@ee760",
+      "displayName": "",
+      "id": "ee760",
+      "name": "lambert12.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "88bc3": {
+      "importer": "gltf-scene",
+      "uuid": "c9dae5f6-59c7-495c-8207-32c5af6e8b54@88bc3",
+      "displayName": "",
+      "id": "88bc3",
+      "name": "car_E_body.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "Texture_01_11",
+        "uri": "c9dae5f6-59c7-495c-8207-32c5af6e8b54@3a228"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "redirect": "c9dae5f6-59c7-495c-8207-32c5af6e8b54@88bc3",
+    "assetFinder": {
+      "meshes": [
+        "c9dae5f6-59c7-495c-8207-32c5af6e8b54@dec63"
+      ],
+      "skeletons": [],
+      "textures": [
+        "c9dae5f6-59c7-495c-8207-32c5af6e8b54@4b252"
+      ],
+      "materials": [
+        "c9dae5f6-59c7-495c-8207-32c5af6e8b54@ee760"
+      ],
+      "scenes": [
+        "c9dae5f6-59c7-495c-8207-32c5af6e8b54@88bc3"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "mountAllAnimationsOnPrefab": true
+  }
+}
